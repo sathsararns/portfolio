@@ -3,7 +3,6 @@ import styles from "./style.module.scss";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { opacity, slideUp } from "./anim";
-import { useRouter } from "next/router";
 import { detectMobile } from "@/data/utils";
 import { enqueueSnackbar } from "notistack";
 
@@ -21,10 +20,8 @@ const words = [
 export default function Preloader() {
   const [index, setIndex] = useState(0);
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
-  const router = useRouter();
   useEffect(() => {
     setDimension({ width: window.innerWidth, height: window.innerHeight });
-    router.push("/");
     if (detectMobile()) {
       setTimeout(() => {
         enqueueSnackbar(

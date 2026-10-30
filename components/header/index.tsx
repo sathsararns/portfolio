@@ -49,7 +49,9 @@ export default function Header() {
           </a>
         </div>
       </div>
-      <AnimatePresence mode="wait">{isActive && <Navbar />}</AnimatePresence>
+      <AnimatePresence mode="wait">
+        {isActive && <Navbar onNavigate={() => setIsActive(false)} />}
+      </AnimatePresence>
     </>
   );
 }

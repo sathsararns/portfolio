@@ -21,6 +21,10 @@ const navItems = [
     href: "journey",
   },
   {
+    title: "Achievements",
+    href: "achievements",
+  },
+  {
     title: "Portfolio",
     href: "portfolio",
   },
@@ -30,7 +34,7 @@ const navItems = [
   },
 ];
 
-export default function Navbar() {
+export default function Navbar({ onNavigate }: { onNavigate: () => void }) {
   const router = useRouter();
   const [selectedIndicator, setSelectedIndicator] = useState(
     router.asPath.replace("/#", "")
@@ -63,6 +67,7 @@ export default function Navbar() {
                 data={{ ...data, index }}
                 isActive={selectedIndicator == data.href}
                 setSelectedIndicator={setSelectedIndicator}
+                onNavigate={onNavigate}
               ></Link>
             );
           })}

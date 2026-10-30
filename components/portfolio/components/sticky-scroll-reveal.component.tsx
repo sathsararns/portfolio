@@ -2,17 +2,21 @@
 import React, { useRef } from "react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import { cn } from "@/utils/cn";
+import { rememberProjectPosition } from "@/utils/portfolio-scroll";
 
 export const StickyScroll = ({
   content,
   contentClassName,
 }: {
   content: {
+    slug: string;
     title: string;
     description: string;
     content?: React.ReactNode | any;
     banner?: string;
+    href?: string;
     liveUrl?: string;
     githubUrl?: string;
   }[];
@@ -86,7 +90,11 @@ export const StickyScroll = ({
       <div className="div relative flex items-start px-4">
         <div className="max-w-2xl">
           {content.map((item, index) => (
-            <div key={item.title + index} className="my-20">
+            <div
+              key={item.title + index}
+              id={`project-${item.slug}`}
+              className="my-20 scroll-mt-[100px]"
+            >
               {/* <div
                 key={activeCard}
                 // style={{ background: backgroundGradient }}
@@ -109,11 +117,16 @@ export const StickyScroll = ({
                 //   zIndex: cards.length - index, //  decrease z-index for the cards that are behind
                 // }}
               >
-                <img
-                  src={item.banner}
-                  className="h-full w-full object-cover rounded-2xl min-h-[25vh]"
-                  alt={item.title}
-                />
+                <Link
+                  href={item.href ?? "#"}
+                  onClick={() => rememberProjectPosition(item.slug)}
+                >
+                  <img
+                    src={item.banner}
+                    className="h-full w-full object-cover rounded-2xl min-h-[25vh]"
+                    alt={item.title}
+                  />
+                </Link>
               </motion.div>
               <motion.h2
                 initial={{
@@ -124,7 +137,13 @@ export const StickyScroll = ({
                 }}
                 className="text-2xl font-bold text-slate-100 mt-10 lg:mt-0"
               >
-                {item.title}
+                <Link
+                  href={item.href ?? "#"}
+                  onClick={() => rememberProjectPosition(item.slug)}
+                  className="hover:underline"
+                >
+                  {item.title}
+                </Link>
               </motion.h2>
               <motion.p
                 initial={{
@@ -138,6 +157,35 @@ export const StickyScroll = ({
                 {item.description}
               </motion.p>
               <div className="flex gap-5">
+                {item.href ? (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: activeCard === index ? 1 : 0.3 }}
+                    className="text-kg text-slate-300 max-w-sm mt-10"
+                  >
+                    <Link
+                      href={item.href}
+                      onClick={() => rememberProjectPosition(item.slug)}
+                      className="flex items-center gap-2 hover:font-semibold"
+                    >
+                      Details
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth="1.5"
+                        stroke="currentColor"
+                        className="size-4"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+                        />
+                      </svg>
+                    </Link>
+                  </motion.div>
+                ) : null}
                 {item.liveUrl ? (
                   <motion.a
                     initial={{

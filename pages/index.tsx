@@ -2,9 +2,10 @@ import { Courier_Prime } from "next/font/google";
 import { Lamp } from "@/components/hero-title";
 import { AnimatePresence } from "framer-motion";
 import Preloader from "@/components/preloader";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import About from "@/components/about";
 import Skills from "@/components/skills";
+import Achievements from "@/components/achievements";
 import Career from "@/components/career";
 import Portfolio from "@/components/portfolio";
 import Contact from "@/components/contact";
@@ -12,6 +13,7 @@ import Lenis from "lenis";
 import Header from "@/components/header";
 import { SnackbarProvider, useSnackbar } from "notistack";
 import { IconButton } from "@mui/material";
+import { getProjectPosition } from "@/utils/portfolio-scroll";
 const courierPrime = Courier_Prime({
   subsets: ["latin"],
   weight: "400",
@@ -19,26 +21,55 @@ const courierPrime = Courier_Prime({
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
+  const lenisRef = useRef<Lenis | null>(null);
   useEffect(() => {
     const lenis = new Lenis();
+    lenisRef.current = lenis;
+    let animationFrame: number;
 
-    function raf(time: any) {
+    function raf(time: number) {
       lenis.raf(time);
 
-      requestAnimationFrame(raf);
+      animationFrame = requestAnimationFrame(raf);
     }
 
-    requestAnimationFrame(raf);
+    animationFrame = requestAnimationFrame(raf);
 
     const loadingTimeout = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
-    loadingTimeout;
 
     return () => {
       clearTimeout(loadingTimeout);
+      cancelAnimationFrame(animationFrame);
+      lenis.destroy();
+      lenisRef.current = null;
     };
   }, []);
+
+  useEffect(() => {
+    if (isLoading || !window.location.hash) return;
+
+    // Page sections only exist after the preloader has finished.
+    const animationFrame = requestAnimationFrame(() => {
+      const id = window.location.hash.slice(1);
+      const project = document.getElementById(id);
+      const lenis = lenisRef.current;
+      if (!project || !lenis) return;
+
+      const savedPosition = id.startsWith("project-")
+        ? getProjectPosition(id.slice("project-".length))
+        : null;
+      lenis.resize();
+      lenis.scrollTo(savedPosition ?? project, {
+        immediate: true,
+        force: true,
+        offset: savedPosition === null ? -100 : 0,
+      });
+    });
+
+    return () => cancelAnimationFrame(animationFrame);
+  }, [isLoading]);
 
   function SnackbarCloseButton({ snackbarKey }: any) {
     const { closeSnackbar } = useSnackbar();
@@ -83,6 +114,7 @@ export default function Home() {
             <Lamp />
             <About />
             <Skills />
+            <Achievements />
             <Career />
             <Portfolio />
             <Contact />
