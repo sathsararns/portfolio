@@ -1,14 +1,10 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
-import { Courier_Prime } from "next/font/google";
+import { courierPrime } from "@/utils/fonts";
 import Link from "next/link";
 import { useState } from "react";
 import { Project, projects } from "@/data/projects.data";
 
-const courierPrime = Courier_Prime({
-  subsets: ["latin"],
-  weight: "400",
-});
 
 export const getStaticPaths: GetStaticPaths = async () => ({
   paths: projects.map((p) => ({ params: { slug: p.slug } })),
@@ -108,6 +104,91 @@ export default function ProjectPage({ project }: { project: Project }) {
               ))}
             </ol>
           </section>
+
+          {project.details.aiWorkflow && (
+            <section aria-labelledby="project-ai-workflow-title">
+              <h2 id="project-ai-workflow-title" className="text-2xl md:text-3xl font-bold mb-6">
+                AI assistant workflow
+              </h2>
+              <ol className="max-w-4xl list-decimal pl-6 space-y-6 text-slate-300 leading-relaxed">
+                {project.details.aiWorkflow.steps.map((step) => (
+                  <li key={step.title} className="pl-2">
+                    <h3 className="font-bold text-slate-100">{step.title}</h3>
+                    <p className="mt-2">{step.description}</p>
+                  </li>
+                ))}
+              </ol>
+              <div className="mt-6 max-w-4xl space-y-3 border-l-2 border-slate-600 pl-5 text-sm text-slate-400 leading-relaxed">
+                {project.details.aiWorkflow.notes.map((note) => <p key={note}>{note}</p>)}
+              </div>
+            </section>
+          )}
+
+
+          {project.details.modelEvaluation && (
+            <section aria-labelledby="project-evaluation-title">
+              <h2 id="project-evaluation-title" className="text-2xl md:text-3xl font-bold mb-6">
+                Model evaluation
+              </h2>
+              <p className="max-w-4xl text-slate-300 leading-relaxed">
+                {project.details.modelEvaluation.description}
+              </p>
+              <dl className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-4">
+                {project.details.modelEvaluation.metrics.map((metric) => (
+                  <div key={metric.label} className="rounded-2xl border border-white/10 bg-white/[0.03] p-5">
+                    <dt className="text-sm text-slate-400">{metric.label}</dt>
+                    <dd className="mt-2 text-xl md:text-2xl font-bold text-slate-100">{metric.value}</dd>
+                  </div>
+                ))}
+              </dl>
+              <div className="mt-6 max-w-4xl space-y-3 text-sm text-slate-400 leading-relaxed">
+                {project.details.modelEvaluation.notes.map((note) => <p key={note}>{note}</p>)}
+              </div>
+            </section>
+          )}
+
+          {project.details.architecture && (
+            <section aria-labelledby="project-architecture-title">
+              <h2 id="project-architecture-title" className="text-2xl md:text-3xl font-bold mb-6">
+                System architecture
+              </h2>
+              <p className="max-w-4xl text-slate-300 leading-relaxed mb-6">
+                {project.details.architecture.description}
+              </p>
+              <figure>
+                <div
+                  className="overflow-x-auto rounded-2xl border border-white/10 bg-[#020617] focus-visible:outline focus-visible:outline-2 focus-visible:outline-slate-400"
+                  tabIndex={0}
+                  role="region"
+                  aria-label="Scrollable system architecture diagram"
+                >
+                  <img
+                    src={project.details.architecture.diagram}
+                    alt={project.details.architecture.alt ?? `${project.title} architecture: React frontend, Express backend, MongoDB, FastAPI / LangGraph, Groq, and external integrations`}
+                    loading="lazy"
+                    className={project.slug === "opsyntra" ? "w-full min-w-[1200px]" : "w-full min-w-[900px]"}
+                  />
+                </div>
+                <figcaption className="mt-4 max-w-4xl text-sm text-slate-400 leading-relaxed">
+                  {project.details.architecture.caption}
+                </figcaption>
+              </figure>
+            </section>
+          )}
+
+
+          {project.details.implementationNotes && (
+            <section aria-labelledby="project-notes-title">
+              <h2 id="project-notes-title" className="text-2xl md:text-3xl font-bold mb-6">
+                Implementation notes
+              </h2>
+              <ul className="max-w-4xl list-disc pl-6 space-y-4 text-slate-300 leading-relaxed">
+                {project.details.implementationNotes.map((note) => (
+                  <li key={note} className="pl-2">{note}</li>
+                ))}
+              </ul>
+            </section>
+          )}
 
           {project.details.technologies && project.details.technologies.length > 0 && (
             <section aria-labelledby="project-technologies-title">

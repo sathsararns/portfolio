@@ -1,0 +1,27 @@
+flowchart TD
+    CSV["Supplied Telco CSV"] --> PREP["Validate and persist stratified memberships"]
+    PREP --> SK["scikit-learn training and validation selection"]
+    PREP --> SP["Alternative PySpark training and comparison"]
+    SK --> MODEL["Complete saved scikit-learn pipeline"]
+    SP --> SMODEL["Native Spark PipelineModel"]
+    SK -. "experiments and artifacts" .-> MLF["MLflow"]
+    SP -. "experiments and artifacts" .-> MLF
+    AIR["Optional Airflow ML / Kafka DAGs"] -. "orchestrates tasks" .-> SK
+    AIR -. "orchestrates tasks" .-> SP
+    UI["Next.js customer / CSV screens"] <-->|"HTTP"| PROXY["Next.js server proxy"]
+    PROXY <-->|"prediction endpoints"| API["FastAPI"]
+    MODEL -->|"cached load"| API
+    CSV --> PRODUCER["Batch or streaming producer"]
+    PRODUCER --> RAW["telco.raw.customers"]
+    RAW --> INF["Prediction consumer: sklearn default / Spark alternative"]
+    MODEL -->|"load once"| INF
+    SMODEL -. "when explicitly selected" .-> INF
+    INF <--> LEDGER["Persistent SQLite outbox / delivery ledger"]
+    INF --> PRED["telco.churn.predictions"]
+    INF -->|"invalid customer messages"| DLQ["telco.deadletter"]
+    RAW --> AC["Separate analytics consumer"]
+    PRED --> AC
+    DLQ --> AC
+    AC -->|"transaction before Kafka offset commit"| PG["PostgreSQL logical events, deliveries and quarantine"]
+    PG --> READ["FastAPI read-only analytics endpoints"]
+    READ <-->|"via server proxy"| LIVE["Next.js Live monitoring"]

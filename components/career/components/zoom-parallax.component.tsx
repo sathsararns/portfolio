@@ -22,7 +22,7 @@ export default function ImageParallax() {
       scale: scale4,
     },
     {
-      src: "/assets/portfolio/chatto/chatto-logo.png",
+      src: "/assets/portfolio/wedahub/wedahub-logo.jpg",
       scale: scale6,
     },
     {
@@ -39,7 +39,7 @@ export default function ImageParallax() {
     },
 
     {
-      src: "/assets/portfolio/vid-on/vid-on-logo.png",
+      src: "/assets/portfolio/opsyntra/opsyntra-logo.png?v=51c18488",
       scale: scale9,
     },
   ];

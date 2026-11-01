@@ -16,18 +16,18 @@ export function AboutLinks() {
   return (
     <div className="flex justify-center items-start h-[30rem] md:h-[30rem] lg:h-[40rem] xl:h-[40rem] 2xl:h-[40rem] flex-col px-4 ">
       <p className="text-neutral-400 text-xl md:text-3xl max-w-3xl  text-left mb-10">
-        Passionate{" "}
+        I&apos;m an{" "}
         <LinkPreview
-          url="https://rxresu.me/jainilsolanki0704/jainil-solanki-resume"
-          imageSrc="/resume-preview-icon.png"
+          url={LINKEDIN}
+          imageSrc="/my_photo.jpeg"
           className="font-bold"
           isStatic
         >
           AI/ML Engineer
         </LinkPreview>{" "}
-        building intelligent, data-driven systems, with expertise in machine
-        learning, deep learning, and deploying models into production-ready
-        applications.
+        building machine learning pipelines, RAG applications, and agentic
+        workflows. I combine Python, data engineering, and full-stack development
+        to create intelligent search, AI assistants, and predictive analytics.
       </p>
 
       <p className="text-neutral-400 text-xl md:text-3xl max-w-3xl  text-left ">

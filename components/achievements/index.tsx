@@ -1,11 +1,7 @@
 import { motion, useReducedMotion } from "framer-motion";
-import { Courier_Prime } from "next/font/google";
+import { courierPrime } from "@/utils/fonts";
 import { Achievement, achievements } from "@/data/achievements.data";
 
-const courierPrime = Courier_Prime({
-  subsets: ["latin"],
-  weight: "400",
-});
 
 function Trophy({ className = "" }: { className?: string }) {
   return (
@@ -25,16 +21,43 @@ function Trophy({ className = "" }: { className?: string }) {
   );
 }
 
-function AchievementLink({ href, children }: { href: string; children: string }) {
+function AchievementLink({
+  href,
+  children,
+  variant = "text",
+}: {
+  href?: string;
+  children: string;
+  variant?: "text" | "button";
+}) {
+  const className =
+    "inline-flex items-center justify-center gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e2c66c] " +
+    (variant === "button"
+      ? "text-sm text-slate-300 underline-offset-4 transition-colors hover:text-slate-100 hover:underline disabled:cursor-not-allowed disabled:opacity-50 md:text-base"
+      : "rounded-sm text-base text-[#e2c66c] underline-offset-4 hover:underline md:text-lg");
+  const content = (
+    <>
+      {children}
+      <span aria-hidden="true">&#8599;</span>
+    </>
+  );
+
+  if (!href?.trim()) {
+    return (
+      <button type="button" disabled className={className}>
+        {content}
+      </button>
+    );
+  }
+
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center gap-2 rounded-sm text-base md:text-lg text-[#e2c66c] underline-offset-4 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#e2c66c]"
+      className={className}
     >
-      {children}
-      <span aria-hidden="true">&#8599;</span>
+      {content}
     </a>
   );
 }
@@ -55,17 +78,16 @@ export default function Achievements({
     >
       <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1fr_1.65fr] lg:gap-20">
         <div className="self-start lg:sticky lg:top-[100px]">
-          <p className="mb-5 flex items-center gap-3 text-base font-medium text-[#e2c66c] md:text-lg">
-            <span className="h-px w-8 bg-[#B69121]" aria-hidden="true" />
-            Awards & recognition
-          </p>
           <h2
             id="achievements-title"
-            className="text-2xl font-bold text-neutral-200 md:text-4xl"
+            className="text-xl font-normal text-neutral-400 md:text-3xl"
           >
             Achievements
           </h2>
-          <p className="mt-6 max-w-sm text-base text-neutral-300 md:text-xl">
+          <p
+            className="mt-6 max-w-sm text-base font-normal text-neutral-400 md:text-xl"
+            style={courierPrime.style}
+          >
             Highlights from hackathons and coding competitions.
           </p>
         </div>
@@ -112,7 +134,7 @@ export default function Achievements({
                       {achievement.year ?? String(index + 1).padStart(2, "0")}
                     </span>
                   </div>
-                  <h3 className="mt-6 break-words text-2xl font-bold text-neutral-200 md:text-4xl">
+                  <h3 className="mt-6 break-words text-xl font-bold text-neutral-200 md:text-3xl">
                     {achievement.event}
                   </h3>
                   {achievement.organizer && (
@@ -130,20 +152,21 @@ export default function Achievements({
                       {achievement.description}
                     </p>
                   )}
-                  {(achievement.projectUrl || achievement.certificateUrl) && (
-                    <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3 border-t border-white/10 pt-5">
-                      {achievement.projectUrl && (
-                        <AchievementLink href={achievement.projectUrl}>
-                          View project
-                        </AchievementLink>
-                      )}
-                      {achievement.certificateUrl && (
-                        <AchievementLink href={achievement.certificateUrl}>
-                          View certificate
-                        </AchievementLink>
-                      )}
-                    </div>
-                  )}
+                  <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3 border-t border-white/10 pt-5">
+                    <AchievementLink href={achievement.achievementUrl} variant="button">
+                      View achievement
+                    </AchievementLink>
+                    {achievement.projectUrl && (
+                      <AchievementLink href={achievement.projectUrl}>
+                        View project
+                      </AchievementLink>
+                    )}
+                    {achievement.certificateUrl && (
+                      <AchievementLink href={achievement.certificateUrl}>
+                        View certificate
+                      </AchievementLink>
+                    )}
+                  </div>
                 </div>
               </motion.article>
             ))

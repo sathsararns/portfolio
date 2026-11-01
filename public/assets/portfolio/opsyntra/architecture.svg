@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1970" viewBox="0 0 1600 1970" role="img" aria-labelledby="title desc">
+<title id="title">Opsyntra system architecture</title>
+<desc id="desc">Validated Telco data feeds scikit-learn and optional Spark training. Saved pipelines serve direct Next.js and FastAPI predictions and a separate Kafka inference consumer. MLflow tracks experiments and optional Airflow DAGs orchestrate tasks. The Kafka consumer uses a persistent SQLite outbox, emits predictions and dead letters, and a separate analytics consumer persists all three topics into PostgreSQL before committing Kafka offsets. Read-only FastAPI endpoints feed polling-based Next.js Live monitoring.</desc>
+<defs><marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto-start-reverse"><path d="M0 0 9 4.5 0 9Z" fill="#94a3b8"/></marker></defs>
+<rect width="1600" height="1970" fill="#020617"/>
+<g font-family="'Courier New',monospace">
+<text x="50" y="60" fill="#e2e8f0" font-size="32" font-weight="700">Opsyntra / system architecture</text>
+<text x="50" y="100" fill="#94a3b8" font-size="20">Local Docker Compose demo · Solid: data flow · Dashed: optional / experiment tracking</text>
+<text x="50" y="150" font-size="20" fill="#67e8f9">01 / DATA + TRAINING</text>
+<text x="50" y="680" font-size="20" fill="#67e8f9">02 / DIRECT HTTP PREDICTIONS</text>
+<text x="50" y="890" font-size="20" fill="#67e8f9">03 / KAFKA INFERENCE</text>
+<text x="50" y="1380" font-size="20" fill="#67e8f9">04 / PERSISTED ANALYTICS</text>
+<path data-from="CSV" data-to="PREP" d="M330 220H430" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+<path data-from="PREP" data-to="SK" d="M590 260V350" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+<path data-from="PREP" data-to="SP" d="M750 240H790V302H1010V350" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+<path data-from="SK" data-to="MODEL" d="M590 440V520" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+<path data-from="SP" data-to="SMODEL" d="M1010 440V520" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+<path data-from="SK" data-to="MLF" d="M750 412H800V477H1390V440" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="8 6"/>
+<path data-from="SP" data-to="MLF" d="M1170 395H1240" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="8 6"/>
+<path data-from="AIR" data-to="SK" d="M850 205H800V325H660V350" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="8 6"/>
+<path data-from="AIR" data-to="SP" d="M1010 260V350" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="8 6"/>
+<path data-from="UI" data-to="PROXY" d="M330 752H430" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+<path data-from="PROXY" data-to="API" d="M750 752H850" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+<path data-from="MODEL" data-to="API" d="M750 560H810V675H1010V710" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+<path data-from="CSV" data-to="PRODUCER" d="M50 220H25V982H50" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+<path data-from="PRODUCER" data-to="RAW" d="M330 982H430" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+<path data-from="RAW" data-to="INF" d="M750 982H850" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+<path data-from="MODEL" data-to="INF" d="M590 605V635H1195V885H980V940" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+<path data-from="SMODEL" data-to="INF" d="M1170 565H1215V910H1090V940" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)" stroke-dasharray="8 6"/>
+<path data-from="INF" data-to="LEDGER" d="M1170 992H1240" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+<path data-from="INF" data-to="PRED" d="M1010 1045V1160" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+<path data-from="INF" data-to="DLQ" d="M1120 1045V1100H1390V1160" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+<path data-from="RAW" data-to="AC" d="M590 1025V1400" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+<path data-from="PRED" data-to="AC" d="M1010 1250V1310H680V1400" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+<path data-from="DLQ" data-to="AC" d="M1390 1250V1350H790V1445H750" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+<path data-from="AC" data-to="PG" d="M750 1460H1010V1530" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+<path data-from="PG" data-to="READ" d="M1010 1635V1770" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)"/>
+<path data-from="READ" data-to="LIVE" d="M850 1815H750" fill="none" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+<g id="node-CSV"><rect x="50" y="180" width="280" height="80" rx="14" fill="#0f172a" stroke="#475569" stroke-width="1.5"/><text x="190" y="214" text-anchor="middle" font-size="20" fill="#e2e8f0"><tspan x="190">Supplied Telco CSV</tspan><tspan x="190" dy="28">7,043 customer records</tspan></text></g>
+<g id="node-PREP"><rect x="430" y="180" width="320" height="80" rx="14" fill="#0f172a" stroke="#475569" stroke-width="1.5"/><text x="590" y="214" text-anchor="middle" font-size="20" fill="#e2e8f0"><tspan x="590">Validate data + persist</tspan><tspan x="590" dy="28">stratified memberships</tspan></text></g>
+<g id="node-AIR"><rect x="850" y="180" width="320" height="80" rx="14" fill="#111827" stroke="#64748b" stroke-width="1.5" stroke-dasharray="6 4"/><text x="1010" y="214" text-anchor="middle" font-size="20" fill="#e2e8f0"><tspan x="1010">Optional Airflow</tspan><tspan x="1010" dy="28">ML / Kafka DAGs</tspan></text></g>
+<g id="node-SK"><rect x="430" y="350" width="320" height="90" rx="14" fill="#0f172a" stroke="#475569" stroke-width="1.5"/><text x="590" y="389" text-anchor="middle" font-size="20" fill="#e2e8f0"><tspan x="590">scikit-learn training</tspan><tspan x="590" dy="28">+ validation selection</tspan></text></g>
+<g id="node-SP"><rect x="850" y="350" width="320" height="90" rx="14" fill="#111827" stroke="#64748b" stroke-width="1.5" stroke-dasharray="6 4"/><text x="1010" y="389" text-anchor="middle" font-size="20" fill="#e2e8f0"><tspan x="1010">Alternative PySpark</tspan><tspan x="1010" dy="28">training + comparison</tspan></text></g>
+<g id="node-MLF"><rect x="1240" y="350" width="300" height="90" rx="14" fill="#111827" stroke="#64748b" stroke-width="1.5" stroke-dasharray="6 4"/><text x="1390" y="389" text-anchor="middle" font-size="20" fill="#e2e8f0"><tspan x="1390">MLflow</tspan><tspan x="1390" dy="28">Experiments + artifacts</tspan></text></g>
+<g id="node-MODEL"><rect x="430" y="520" width="320" height="85" rx="14" fill="#0f172a" stroke="#475569" stroke-width="1.5"/><text x="590" y="556.5" text-anchor="middle" font-size="20" fill="#e2e8f0"><tspan x="590">Complete saved</tspan><tspan x="590" dy="28">scikit-learn pipeline</tspan></text></g>
+<g id="node-SMODEL"><rect x="850" y="520" width="320" height="85" rx="14" fill="#111827" stroke="#64748b" stroke-width="1.5" stroke-dasharray="6 4"/><text x="1010" y="556.5" text-anchor="middle" font-size="20" fill="#e2e8f0"><tspan x="1010">Native Spark</tspan><tspan x="1010" dy="28">PipelineModel</tspan></text></g>
+<g id="node-UI"><rect x="50" y="710" width="280" height="85" rx="14" fill="#0f172a" stroke="#475569" stroke-width="1.5"/><text x="190" y="746.5" text-anchor="middle" font-size="20" fill="#e2e8f0"><tspan x="190">Next.js customer</tspan><tspan x="190" dy="28">and CSV screens</tspan></text></g>
+<g id="node-PROXY"><rect x="430" y="710" width="320" height="85" rx="14" fill="#0f172a" stroke="#475569" stroke-width="1.5"/><text x="590" y="746.5" text-anchor="middle" font-size="20" fill="#e2e8f0"><tspan x="590">Next.js</tspan><tspan x="590" dy="28">server proxy</tspan></text></g>
+<g id="node-API"><rect x="850" y="710" width="320" height="85" rx="14" fill="#0f172a" stroke="#475569" stroke-width="1.5"/><text x="1010" y="746.5" text-anchor="middle" font-size="20" fill="#e2e8f0"><tspan x="1010">FastAPI</tspan><tspan x="1010" dy="28">Prediction endpoints</tspan></text></g>
+<g id="node-PRODUCER"><rect x="50" y="940" width="280" height="85" rx="14" fill="#0f172a" stroke="#475569" stroke-width="1.5"/><text x="190" y="976.5" text-anchor="middle" font-size="20" fill="#e2e8f0"><tspan x="190">Batch / simulated</tspan><tspan x="190" dy="28">streaming producer</tspan></text></g>
+<g id="node-RAW"><rect x="430" y="940" width="320" height="85" rx="14" fill="#0f172a" stroke="#475569" stroke-width="1.5"/><text x="590" y="976.5" text-anchor="middle" font-size="20" fill="#e2e8f0"><tspan x="590">Kafka topic</tspan><tspan x="590" dy="28">telco.raw.customers</tspan></text></g>
+<g id="node-INF"><rect x="850" y="940" width="320" height="105" rx="14" fill="#0f172a" stroke="#475569" stroke-width="1.5"/><text x="1010" y="972.5" text-anchor="middle" font-size="20" fill="#e2e8f0"><tspan x="1010">Prediction consumer</tspan><tspan x="1010" dy="28">scikit-learn default</tspan><tspan x="1010" dy="28">Spark alternative</tspan></text></g>
+<g id="node-LEDGER"><rect x="1240" y="940" width="300" height="105" rx="14" fill="#0f172a" stroke="#475569" stroke-width="1.5"/><text x="1390" y="986.5" text-anchor="middle" font-size="20" fill="#e2e8f0"><tspan x="1390">Persistent SQLite</tspan><tspan x="1390" dy="28">Outbox / ledger</tspan></text></g>
+<g id="node-PRED"><rect x="850" y="1160" width="320" height="90" rx="14" fill="#0f172a" stroke="#475569" stroke-width="1.5"/><text x="1010" y="1199" text-anchor="middle" font-size="20" fill="#e2e8f0"><tspan x="1010">Kafka topic</tspan><tspan x="1010" dy="28">telco.churn.predictions</tspan></text></g>
+<g id="node-DLQ"><rect x="1240" y="1160" width="300" height="90" rx="14" fill="#0f172a" stroke="#475569" stroke-width="1.5"/><text x="1390" y="1199" text-anchor="middle" font-size="20" fill="#e2e8f0"><tspan x="1390">Kafka topic</tspan><tspan x="1390" dy="28">telco.deadletter</tspan></text></g>
+<g id="node-AC"><rect x="430" y="1400" width="320" height="90" rx="14" fill="#0f172a" stroke="#475569" stroke-width="1.5"/><text x="590" y="1439" text-anchor="middle" font-size="20" fill="#e2e8f0"><tspan x="590">Separate</tspan><tspan x="590" dy="28">analytics consumer</tspan></text></g>
+<g id="node-PG"><rect x="850" y="1530" width="320" height="105" rx="14" fill="#0f172a" stroke="#475569" stroke-width="1.5"/><text x="1010" y="1562.5" text-anchor="middle" font-size="20" fill="#e2e8f0"><tspan x="1010">PostgreSQL</tspan><tspan x="1010" dy="28">Events + deliveries</tspan><tspan x="1010" dy="28">and quarantine</tspan></text></g>
+<g id="node-READ"><rect x="850" y="1770" width="320" height="90" rx="14" fill="#0f172a" stroke="#475569" stroke-width="1.5"/><text x="1010" y="1809" text-anchor="middle" font-size="20" fill="#e2e8f0"><tspan x="1010">FastAPI read-only</tspan><tspan x="1010" dy="28">analytics endpoints</tspan></text></g>
+<g id="node-LIVE"><rect x="430" y="1770" width="320" height="90" rx="14" fill="#0f172a" stroke="#475569" stroke-width="1.5"/><text x="590" y="1809" text-anchor="middle" font-size="20" fill="#e2e8f0"><tspan x="590">Next.js</tspan><tspan x="590" dy="28">Live monitoring</tspan></text></g>
+<text x="380" y="736" text-anchor="middle" font-size="18" fill="#cbd5e1" stroke="#020617" stroke-width="7" paint-order="stroke">HTTP</text>
+<text x="800" y="696" text-anchor="middle" font-size="18" fill="#cbd5e1" stroke="#020617" stroke-width="7" paint-order="stroke">HTTP</text>
+<text x="903" y="658" text-anchor="middle" font-size="18" fill="#cbd5e1" stroke="#020617" stroke-width="7" paint-order="stroke">Cached load</text>
+<text x="329" y="300" text-anchor="middle" font-size="18" fill="#cbd5e1" stroke="#020617" stroke-width="7" paint-order="stroke">Historical CSV</text>
+<text x="346" y="321" text-anchor="middle" font-size="18" fill="#cbd5e1" stroke="#020617" stroke-width="7" paint-order="stroke">replay</text>
+<text x="830" y="870" text-anchor="middle" font-size="18" fill="#cbd5e1" stroke="#020617" stroke-width="7" paint-order="stroke">Load once</text>
+<text x="1320" y="863" text-anchor="middle" font-size="18" fill="#cbd5e1" stroke="#020617" stroke-width="7" paint-order="stroke">When explicitly</text>
+<text x="1320" y="887" text-anchor="middle" font-size="18" fill="#cbd5e1" stroke="#020617" stroke-width="7" paint-order="stroke">selected</text>
+<text x="1258" y="1090" text-anchor="middle" font-size="18" fill="#cbd5e1" stroke="#020617" stroke-width="7" paint-order="stroke">Invalid customers</text>
+<text x="1125" y="1434" text-anchor="middle" font-size="18" fill="#cbd5e1" stroke="#020617" stroke-width="7" paint-order="stroke">SQL transaction before</text>
+<text x="1125" y="1459" text-anchor="middle" font-size="18" fill="#cbd5e1" stroke="#020617" stroke-width="7" paint-order="stroke">Kafka offset commit</text>
+<text x="800" y="1750" text-anchor="middle" font-size="18" fill="#cbd5e1" stroke="#020617" stroke-width="7" paint-order="stroke">Via server proxy</text>
+<text x="1130" y="1705" text-anchor="middle" font-size="18" fill="#cbd5e1" stroke="#020617" stroke-width="7" paint-order="stroke">Read-only queries</text>
+<text x="1390" y="501" text-anchor="middle" font-size="18" fill="#cbd5e1" stroke="#020617" stroke-width="7" paint-order="stroke">Experiments + artifacts</text>
+<text x="736" y="282" text-anchor="middle" font-size="18" fill="#cbd5e1" stroke="#020617" stroke-width="7" paint-order="stroke">Orchestrates tasks</text>
+<text x="50" y="1920" font-size="20" fill="#94a3b8">At-least-once delivery + logical deduplication · Dashboard updates use HTTP polling</text></g></svg>

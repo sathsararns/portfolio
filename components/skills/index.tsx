@@ -5,28 +5,74 @@ import { Slide } from "./components/parallex-slider.component";
 
 const skills = [
   "Python",
-  "PyTorch",
-  "TensorFlow",
-  "Keras",
+  "TypeScript",
+  "JavaScript",
+  "SQL",
+  "React",
+  "Next.js",
+  "React Router",
+  "Tailwind CSS",
+  "Framer Motion",
+  "Zustand",
+  "Node.js",
+  "Express",
+  "FastAPI",
+  "Pydantic",
+  "REST APIs",
+  "Socket.IO",
   "Scikit-learn",
+  "XGBoost",
+  "PySpark",
   "Pandas",
   "NumPy",
-  "OpenCV",
-  "Deep Learning",
-  "Computer Vision",
-  "NLP",
-  "LLM Integration",
+  "LangChain",
+  "LangGraph",
   "RAG & Agentic Workflows",
-  "Vector Search (Qdrant)",
-  "MLflow",
-  "FastAPI",
-  "Docker",
-  "REST APIs",
+  "FastEmbed",
+  "Vector Search",
   "PostgreSQL",
-  "MongoDB",
-  "SQL",
-  "Git",
+  "MongoDB Atlas",
+  "SQLAlchemy",
+  "Redis",
+  "Apache Kafka",
+  "Apache Airflow",
+  "MLflow",
+  "Docker",
 ];
+
+const skillLogoRows = [
+  [
+    ["React", "react"],
+    ["TypeScript", "typescript"],
+    ["JavaScript", "javascript"],
+    ["Next.js", "nextjs"],
+    ["Tailwind CSS", "tailwindcss"],
+    ["Node.js", "nodejs"],
+    ["FastAPI", "fastapi"],
+  ],
+  [
+    ["Python", "python"],
+    ["Scikit-learn", "scikitlearn"],
+    ["Pandas", "pandas"],
+    ["NumPy", "numpy"],
+    ["PySpark", "apachespark"],
+  ],
+  [
+    ["PostgreSQL", "postgresql"],
+    ["MongoDB Atlas", "mongodb"],
+    ["Redis", "redis"],
+    ["Apache Kafka", "apachekafka"],
+    ["Apache Airflow", "apacheairflow"],
+    ["Docker", "docker"],
+  ],
+].map((row) =>
+  row
+    .filter(([skill]) => skills.includes(skill))
+    .map(([, icon]) =>
+      `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${icon}/${icon}-original.svg`
+    )
+);
+
 export default function Skills() {
   const container = useRef<any>();
 
@@ -43,57 +89,22 @@ export default function Skills() {
             What I work with
           </p>
           <div className="flex flex-wrap gap-3 max-w-3xl  text-left mb-10">
-            {skills.map((skill, index) => (
-              <Chip key={index} text={skill} />
+            {skills.map((skill) => (
+              <Chip key={skill} text={skill} />
             ))}
           </div>
         </div>
         <main className="overflow-hidden mt-[200px]" id="journey">
           <div ref={container} className="flex flex-col gap-3 ">
-            <Slide
-              direction={"left"}
-              left={"-100%"}
-              progress={scrollYProgress}
-              words={[
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/keras/keras-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/scikitlearn/scikitlearn-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg",
-              ]}
-            />
-
-            <Slide
-              direction={"right"}
-              left={"-100%"}
-              progress={scrollYProgress}
-              words={[
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matplotlib/matplotlib-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
-              ]}
-            />
-
-            <Slide
-              direction={"left"}
-              left={"-100%"}
-              progress={scrollYProgress}
-              words={[
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kaggle/kaggle-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg",
-                "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg",
-              ]}
-            />
+            {skillLogoRows.map((logos, index) => (
+              <Slide
+                key={index}
+                direction={index === 1 ? "right" : "left"}
+                left="-100%"
+                progress={scrollYProgress}
+                words={logos}
+              />
+            ))}
           </div>
         </main>
       </div>

@@ -1,4 +1,4 @@
-import { Courier_Prime } from "next/font/google";
+import { courierPrime } from "@/utils/fonts";
 import { Lamp } from "@/components/hero-title";
 import { AnimatePresence } from "framer-motion";
 import Preloader from "@/components/preloader";
@@ -14,10 +14,6 @@ import Header from "@/components/header";
 import { SnackbarProvider, useSnackbar } from "notistack";
 import { IconButton } from "@mui/material";
 import { getProjectPosition } from "@/utils/portfolio-scroll";
-const courierPrime = Courier_Prime({
-  subsets: ["latin"],
-  weight: "400",
-});
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);

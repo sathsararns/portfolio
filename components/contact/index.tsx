@@ -1,10 +1,6 @@
-import { Courier_Prime } from "next/font/google";
+import { courierPrime } from "@/utils/fonts";
 import { ContactComponent } from "./components/contact.component";
 
-const courierPrime = Courier_Prime({
-  subsets: ["latin"],
-  weight: "400",
-});
 
 export default function Contact() {
   const date = new Date();
