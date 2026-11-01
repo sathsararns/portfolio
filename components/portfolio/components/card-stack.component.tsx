@@ -1,10 +1,9 @@
 "use client";
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { responsiveImage } from "@/utils/images";
+import { useEffect, useRef, useState } from "react";
+import { motion, useInView } from "framer-motion";
 import { Dialog, DialogTitle, Tooltip } from "@mui/material";
 import { ImagesSlider } from "./image-slider.component";
-
-let interval: any;
 
 type Card = {
   id: string;
@@ -24,6 +23,8 @@ export const CardStack = ({
   const CARD_OFFSET = offset || 10;
   const SCALE_FACTOR = scaleFactor || 0.06;
   const [cards, setCards] = useState<Card[]>(items);
+  const stackRef = useRef<HTMLDivElement>(null);
+  const isVisible = useInView(stackRef, { margin: "200px" });
   const [showAvatarDialog, setShowAvatarDialog] = useState<{
     show: boolean;
     src: string | null;
@@ -46,19 +47,12 @@ export const CardStack = ({
   };
 
   useEffect(() => {
-    startFlipping();
-
-    return () => clearInterval(interval);
-  }, []);
-  const startFlipping = () => {
-    interval = setInterval(() => {
-      setCards((prevCards: Card[]) => {
-        const newArray = [...prevCards]; // create a copy of the array
-        newArray.unshift(newArray.pop()!); // move the last element to the front
-        return newArray;
-      });
+    if (!isVisible || showAvatarDialog.show || items.length < 2) return;
+    const timer = window.setInterval(() => {
+      setCards((previous) => [...previous.slice(-1), ...previous.slice(0, -1)]);
     }, 5000);
-  };
+    return () => window.clearInterval(timer);
+  }, [isVisible, showAvatarDialog.show, items.length]);
 
   return (
     <>
@@ -87,7 +81,7 @@ export const CardStack = ({
             }}
           >
             <Tooltip title="Previous" placement="top">
-              <a onClick={() => handleNext()}>
+              <button type="button" aria-label="Previous screenshot" onClick={handlePrevious}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -102,10 +96,10 @@ export const CardStack = ({
                     d="M15.75 19.5 8.25 12l7.5-7.5"
                   />
                 </svg>
-              </a>
+              </button>
             </Tooltip>
             <Tooltip title="Next" placement="top">
-              <a onClick={() => handlePrevious()}>
+              <button type="button" aria-label="Next screenshot" onClick={handleNext}>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
@@ -120,11 +114,11 @@ export const CardStack = ({
                     d="m8.25 4.5 7.5 7.5-7.5 7.5"
                   />
                 </svg>
-              </a>
+              </button>
             </Tooltip>
             {autoplayOn ? (
               <Tooltip title="Pause Autoplay" placement="top">
-                <a onClick={() => isAutoplayOn(false)}>
+                <button type="button" aria-label="Pause slideshow" onClick={() => isAutoplayOn(false)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -139,11 +133,11 @@ export const CardStack = ({
                       d="M15.75 5.25v13.5m-7.5-13.5v13.5"
                     />
                   </svg>
-                </a>
+                </button>
               </Tooltip>
             ) : (
               <Tooltip title="Resume Autoplay" placement="top">
-                <a onClick={() => isAutoplayOn(true)}>
+                <button type="button" aria-label="Resume slideshow" onClick={() => isAutoplayOn(true)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -158,11 +152,13 @@ export const CardStack = ({
                       d="M5.25 5.653c0-.856.917-1.398 1.667-.986l11.54 6.347a1.125 1.125 0 0 1 0 1.972l-11.54 6.347a1.125 1.125 0 0 1-1.667-.986V5.653Z"
                     />
                   </svg>
-                </a>
+                </button>
               </Tooltip>
             )}
             <Tooltip title="Close Preview" placement="top">
-              <a
+              <button
+                type="button"
+                aria-label="Close preview"
                 onClick={() => setShowAvatarDialog({ show: false, src: null })}
               >
                 <svg
@@ -179,7 +175,7 @@ export const CardStack = ({
                     d="M6 18 18 6M6 6l12 12"
                   />
                 </svg>
-              </a>
+              </button>
             </Tooltip>
           </DialogTitle>
           <ImagesSlider
@@ -193,7 +189,7 @@ export const CardStack = ({
           </ImagesSlider>
         </Dialog>
       )}
-      <div className="relative  h-60 w-60 md:h-60 md:w-96">
+      <div ref={stackRef} className="relative  h-60 w-60 md:h-60 md:w-96">
         {cards.map((card, index) => {
           return (
             <motion.a
@@ -207,12 +203,15 @@ export const CardStack = ({
                 scale: 1 - index * SCALE_FACTOR, // decrease scale for cards that are behind
                 zIndex: cards.length - index, //  decrease z-index for the cards that are behind
               }}
-              onClick={() => setShowAvatarDialog({ show: true, src: card.src })}
+              onClick={() => {
+                setCurrentIndex(items.findIndex((item) => item.id === card.id));
+                setShowAvatarDialog({ show: true, src: card.src });
+              }}
             >
               <img
-                src={card.src}
-                width={300}
-                height={300}
+                {...responsiveImage(card.src, "384px")}
+                loading="lazy"
+                decoding="async"
                 className="h-full w-full object-cover rounded-2xl"
                 alt={card.id}
               />

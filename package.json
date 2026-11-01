@@ -7,7 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postbuild": "node scripts/generate-sitemap.mjs"
+    "postbuild": "node scripts/generate-sitemap.mjs",
+    "optimize:images": "node scripts/optimize-images.cjs",
+    "predev": "npm run optimize:images",
+    "prebuild": "npm run optimize:images"
   },
   "dependencies": {
     "@emotion/react": "^11.11.4",
@@ -34,6 +37,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "postcss": "^8",
+    "sharp": "0.35.5",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
   }

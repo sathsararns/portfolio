@@ -46,3 +46,16 @@ rebuild and deploy automatically. `next start` does not serve this static export
 
 See [DEPLOYMENT.md](DEPLOYMENT.md) for hosting details and [SEO.md](SEO.md) for
 metadata, sitemap and Google Search Console setup.
+
+## Image and loading performance
+
+`npm run dev` and `npm run build` first run `npm run optimize:images`. Sharp generates
+responsive, content-hashed WebP variants for active projects in `public/optimized/`
+and updates `data/images.generated.json`. Generated image files are ignored by Git
+and rebuilt automatically in GitHub Actions. Keep the original photos and screenshots
+in `public/`; new or replaced images are processed on the next development/build run.
+
+The page selects image sizes with `srcset`, reserves image dimensions and lazy-loads
+offscreen images. Link preview images load on hover. Gallery viewers request the
+selected screenshot on demand. The intro plays briefly once per tab session; hash
+links, return visits and reduced-motion preferences skip it.

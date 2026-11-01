@@ -51,6 +51,11 @@ const Phrase = ({ words, type }: { words: string[]; type?: string }) => {
         <img
           key={index}
           src={word}
+          width={50}
+          height={50}
+          loading="lazy"
+          decoding="async"
+          alt=""
           className={`w-[50px] h-[50px] object-contain rounded-full shadow-md ${
             word.includes("/apachekafka/") ? "brightness-0 invert" : ""
           }`}

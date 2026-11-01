@@ -6,3 +6,5 @@ node_modules
 *.tsbuildinfo
 /.next-build/
 /.next-dev/
+
+/public/optimized/

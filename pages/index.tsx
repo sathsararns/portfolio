@@ -36,12 +36,20 @@ export default function Home() {
 
     animationFrame = requestAnimationFrame(raf);
 
-    const loadingTimeout = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
+    let introSeen = false;
+    try {
+      introSeen = sessionStorage.getItem("portfolio-intro-seen") === "1";
+      sessionStorage.setItem("portfolio-intro-seen", "1");
+    } catch {
+      // The short intro still works when storage is unavailable.
+    }
+    const skipIntro = introSeen || Boolean(window.location.hash) || window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let loadingTimeout: number | undefined;
+    if (skipIntro) setIsLoading(false);
+    else loadingTimeout = window.setTimeout(() => setIsLoading(false), 350);
 
     return () => {
-      clearTimeout(loadingTimeout);
+      window.clearTimeout(loadingTimeout);
       cancelAnimationFrame(animationFrame);
       lenis.destroy();
       lenisRef.current = null;
@@ -51,8 +59,12 @@ export default function Home() {
   useEffect(() => {
     if (isLoading || !window.location.hash) return;
 
-    // Restore the section position after the preloader and layout settle.
-    const animationFrame = requestAnimationFrame(() => {
+    // Wait for local fonts so a cold visit restores the final section position.
+    let cancelled = false;
+    let animationFrame: number | undefined;
+    void document.fonts.ready.then(() => {
+      if (cancelled) return;
+      animationFrame = requestAnimationFrame(() => {
       const id = window.location.hash.slice(1);
       const project = document.getElementById(id);
       const lenis = lenisRef.current;
@@ -67,9 +79,13 @@ export default function Home() {
         force: true,
         offset: savedPosition === null ? -100 : 0,
       });
+      });
     });
 
-    return () => cancelAnimationFrame(animationFrame);
+    return () => {
+      cancelled = true;
+      if (animationFrame !== undefined) cancelAnimationFrame(animationFrame);
+    };
   }, [isLoading]);
 
   function SnackbarCloseButton({ snackbarKey }: any) {

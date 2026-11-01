@@ -1,0 +1,888 @@
+{
+  "/assets/portfolio.png": {
+    "src": "/optimized/portfolio-21c013e47c83-1280.webp",
+    "width": 1280,
+    "height": 628,
+    "fullSrc": "/optimized/portfolio-21c013e47c83-1280.webp",
+    "variants": [
+      {
+        "src": "/optimized/portfolio-21c013e47c83-320.webp",
+        "width": 320,
+        "height": 157,
+        "bytes": 1616
+      },
+      {
+        "src": "/optimized/portfolio-21c013e47c83-640.webp",
+        "width": 640,
+        "height": 314,
+        "bytes": 3750
+      },
+      {
+        "src": "/optimized/portfolio-21c013e47c83-1280.webp",
+        "width": 1280,
+        "height": 628,
+        "bytes": 7258
+      }
+    ]
+  },
+  "/assets/portfolio/opsyntra/opsyntra-1.png": {
+    "src": "/optimized/opsyntra-1-9f4764417ad7-960.webp",
+    "width": 960,
+    "height": 435,
+    "fullSrc": "/optimized/opsyntra-1-9f4764417ad7-1917.webp",
+    "variants": [
+      {
+        "src": "/optimized/opsyntra-1-9f4764417ad7-480.webp",
+        "width": 480,
+        "height": 217,
+        "bytes": 13214
+      },
+      {
+        "src": "/optimized/opsyntra-1-9f4764417ad7-960.webp",
+        "width": 960,
+        "height": 435,
+        "bytes": 37062
+      },
+      {
+        "src": "/optimized/opsyntra-1-9f4764417ad7-1600.webp",
+        "width": 1600,
+        "height": 724,
+        "bytes": 75634
+      },
+      {
+        "src": "/optimized/opsyntra-1-9f4764417ad7-1917.webp",
+        "width": 1917,
+        "height": 868,
+        "bytes": 96930
+      }
+    ]
+  },
+  "/assets/portfolio/opsyntra/opsyntra-2.png": {
+    "src": "/optimized/opsyntra-2-87a6bdcc26bc-960.webp",
+    "width": 960,
+    "height": 429,
+    "fullSrc": "/optimized/opsyntra-2-87a6bdcc26bc-1917.webp",
+    "variants": [
+      {
+        "src": "/optimized/opsyntra-2-87a6bdcc26bc-480.webp",
+        "width": 480,
+        "height": 215,
+        "bytes": 9146
+      },
+      {
+        "src": "/optimized/opsyntra-2-87a6bdcc26bc-960.webp",
+        "width": 960,
+        "height": 429,
+        "bytes": 25096
+      },
+      {
+        "src": "/optimized/opsyntra-2-87a6bdcc26bc-1600.webp",
+        "width": 1600,
+        "height": 715,
+        "bytes": 54678
+      },
+      {
+        "src": "/optimized/opsyntra-2-87a6bdcc26bc-1917.webp",
+        "width": 1917,
+        "height": 857,
+        "bytes": 68830
+      }
+    ]
+  },
+  "/assets/portfolio/opsyntra/opsyntra-3.png": {
+    "src": "/optimized/opsyntra-3-b94129f7d9d3-960.webp",
+    "width": 960,
+    "height": 434,
+    "fullSrc": "/optimized/opsyntra-3-b94129f7d9d3-1917.webp",
+    "variants": [
+      {
+        "src": "/optimized/opsyntra-3-b94129f7d9d3-480.webp",
+        "width": 480,
+        "height": 217,
+        "bytes": 10972
+      },
+      {
+        "src": "/optimized/opsyntra-3-b94129f7d9d3-960.webp",
+        "width": 960,
+        "height": 434,
+        "bytes": 31760
+      },
+      {
+        "src": "/optimized/opsyntra-3-b94129f7d9d3-1600.webp",
+        "width": 1600,
+        "height": 723,
+        "bytes": 67254
+      },
+      {
+        "src": "/optimized/opsyntra-3-b94129f7d9d3-1917.webp",
+        "width": 1917,
+        "height": 866,
+        "bytes": 87596
+      }
+    ]
+  },
+  "/assets/portfolio/opsyntra/opsyntra-4.png": {
+    "src": "/optimized/opsyntra-4-f0dcc8d3a966-960.webp",
+    "width": 960,
+    "height": 434,
+    "fullSrc": "/optimized/opsyntra-4-f0dcc8d3a966-1917.webp",
+    "variants": [
+      {
+        "src": "/optimized/opsyntra-4-f0dcc8d3a966-480.webp",
+        "width": 480,
+        "height": 217,
+        "bytes": 9824
+      },
+      {
+        "src": "/optimized/opsyntra-4-f0dcc8d3a966-960.webp",
+        "width": 960,
+        "height": 434,
+        "bytes": 28958
+      },
+      {
+        "src": "/optimized/opsyntra-4-f0dcc8d3a966-1600.webp",
+        "width": 1600,
+        "height": 724,
+        "bytes": 64396
+      },
+      {
+        "src": "/optimized/opsyntra-4-f0dcc8d3a966-1917.webp",
+        "width": 1917,
+        "height": 867,
+        "bytes": 80716
+      }
+    ]
+  },
+  "/assets/portfolio/opsyntra/opsyntra-logo.png": {
+    "src": "/optimized/opsyntra-logo-2e9d52aedaca-1280.webp",
+    "width": 1280,
+    "height": 574,
+    "fullSrc": "/optimized/opsyntra-logo-2e9d52aedaca-1280.webp",
+    "variants": [
+      {
+        "src": "/optimized/opsyntra-logo-2e9d52aedaca-320.webp",
+        "width": 320,
+        "height": 144,
+        "bytes": 9276
+      },
+      {
+        "src": "/optimized/opsyntra-logo-2e9d52aedaca-640.webp",
+        "width": 640,
+        "height": 287,
+        "bytes": 24172
+      },
+      {
+        "src": "/optimized/opsyntra-logo-2e9d52aedaca-1280.webp",
+        "width": 1280,
+        "height": 574,
+        "bytes": 73016
+      }
+    ]
+  },
+  "/assets/portfolio/voya/voya-1.png": {
+    "src": "/optimized/voya-1-ead680eb8570-960.webp",
+    "width": 960,
+    "height": 432,
+    "fullSrc": "/optimized/voya-1-ead680eb8570-1920.webp",
+    "variants": [
+      {
+        "src": "/optimized/voya-1-ead680eb8570-480.webp",
+        "width": 480,
+        "height": 216,
+        "bytes": 5656
+      },
+      {
+        "src": "/optimized/voya-1-ead680eb8570-960.webp",
+        "width": 960,
+        "height": 432,
+        "bytes": 17290
+      },
+      {
+        "src": "/optimized/voya-1-ead680eb8570-1600.webp",
+        "width": 1600,
+        "height": 720,
+        "bytes": 35530
+      },
+      {
+        "src": "/optimized/voya-1-ead680eb8570-1920.webp",
+        "width": 1920,
+        "height": 864,
+        "bytes": 44676
+      }
+    ]
+  },
+  "/assets/portfolio/voya/voya-2.png": {
+    "src": "/optimized/voya-2-16f486357e69-960.webp",
+    "width": 960,
+    "height": 432,
+    "fullSrc": "/optimized/voya-2-16f486357e69-1917.webp",
+    "variants": [
+      {
+        "src": "/optimized/voya-2-16f486357e69-480.webp",
+        "width": 480,
+        "height": 216,
+        "bytes": 7858
+      },
+      {
+        "src": "/optimized/voya-2-16f486357e69-960.webp",
+        "width": 960,
+        "height": 432,
+        "bytes": 24520
+      },
+      {
+        "src": "/optimized/voya-2-16f486357e69-1600.webp",
+        "width": 1600,
+        "height": 720,
+        "bytes": 54210
+      },
+      {
+        "src": "/optimized/voya-2-16f486357e69-1917.webp",
+        "width": 1917,
+        "height": 863,
+        "bytes": 68242
+      }
+    ]
+  },
+  "/assets/portfolio/voya/voya-3.png": {
+    "src": "/optimized/voya-3-ede83c93511c-960.webp",
+    "width": 960,
+    "height": 429,
+    "fullSrc": "/optimized/voya-3-ede83c93511c-1917.webp",
+    "variants": [
+      {
+        "src": "/optimized/voya-3-ede83c93511c-480.webp",
+        "width": 480,
+        "height": 215,
+        "bytes": 2300
+      },
+      {
+        "src": "/optimized/voya-3-ede83c93511c-960.webp",
+        "width": 960,
+        "height": 429,
+        "bytes": 6522
+      },
+      {
+        "src": "/optimized/voya-3-ede83c93511c-1600.webp",
+        "width": 1600,
+        "height": 715,
+        "bytes": 14372
+      },
+      {
+        "src": "/optimized/voya-3-ede83c93511c-1917.webp",
+        "width": 1917,
+        "height": 857,
+        "bytes": 18078
+      }
+    ]
+  },
+  "/assets/portfolio/voya/voya-4.png": {
+    "src": "/optimized/voya-4-b19133ee7e88-960.webp",
+    "width": 960,
+    "height": 429,
+    "fullSrc": "/optimized/voya-4-b19133ee7e88-1917.webp",
+    "variants": [
+      {
+        "src": "/optimized/voya-4-b19133ee7e88-480.webp",
+        "width": 480,
+        "height": 215,
+        "bytes": 2056
+      },
+      {
+        "src": "/optimized/voya-4-b19133ee7e88-960.webp",
+        "width": 960,
+        "height": 429,
+        "bytes": 5888
+      },
+      {
+        "src": "/optimized/voya-4-b19133ee7e88-1600.webp",
+        "width": 1600,
+        "height": 715,
+        "bytes": 12952
+      },
+      {
+        "src": "/optimized/voya-4-b19133ee7e88-1917.webp",
+        "width": 1917,
+        "height": 857,
+        "bytes": 16750
+      }
+    ]
+  },
+  "/assets/portfolio/voya/voya-logo.png": {
+    "src": "/optimized/voya-logo-71c7309a9406-1280.webp",
+    "width": 1280,
+    "height": 475,
+    "fullSrc": "/optimized/voya-logo-71c7309a9406-1280.webp",
+    "variants": [
+      {
+        "src": "/optimized/voya-logo-71c7309a9406-320.webp",
+        "width": 320,
+        "height": 119,
+        "bytes": 5288
+      },
+      {
+        "src": "/optimized/voya-logo-71c7309a9406-640.webp",
+        "width": 640,
+        "height": 238,
+        "bytes": 12566
+      },
+      {
+        "src": "/optimized/voya-logo-71c7309a9406-1280.webp",
+        "width": 1280,
+        "height": 475,
+        "bytes": 30044
+      }
+    ]
+  },
+  "/assets/portfolio/wedahub/wedahub--9.png": {
+    "src": "/optimized/wedahub--9-9b23feee623f-960.webp",
+    "width": 960,
+    "height": 429,
+    "fullSrc": "/optimized/wedahub--9-9b23feee623f-1917.webp",
+    "variants": [
+      {
+        "src": "/optimized/wedahub--9-9b23feee623f-480.webp",
+        "width": 480,
+        "height": 215,
+        "bytes": 8074
+      },
+      {
+        "src": "/optimized/wedahub--9-9b23feee623f-960.webp",
+        "width": 960,
+        "height": 429,
+        "bytes": 21844
+      },
+      {
+        "src": "/optimized/wedahub--9-9b23feee623f-1600.webp",
+        "width": 1600,
+        "height": 715,
+        "bytes": 45552
+      },
+      {
+        "src": "/optimized/wedahub--9-9b23feee623f-1917.webp",
+        "width": 1917,
+        "height": 857,
+        "bytes": 57844
+      }
+    ]
+  },
+  "/assets/portfolio/wedahub/wedahub-1.png": {
+    "src": "/optimized/wedahub-1-9b5064b30d82-960.webp",
+    "width": 960,
+    "height": 433,
+    "fullSrc": "/optimized/wedahub-1-9b5064b30d82-1916.webp",
+    "variants": [
+      {
+        "src": "/optimized/wedahub-1-9b5064b30d82-480.webp",
+        "width": 480,
+        "height": 217,
+        "bytes": 13376
+      },
+      {
+        "src": "/optimized/wedahub-1-9b5064b30d82-960.webp",
+        "width": 960,
+        "height": 433,
+        "bytes": 34096
+      },
+      {
+        "src": "/optimized/wedahub-1-9b5064b30d82-1600.webp",
+        "width": 1600,
+        "height": 722,
+        "bytes": 65602
+      },
+      {
+        "src": "/optimized/wedahub-1-9b5064b30d82-1916.webp",
+        "width": 1916,
+        "height": 865,
+        "bytes": 80058
+      }
+    ]
+  },
+  "/assets/portfolio/wedahub/wedahub-10.png": {
+    "src": "/optimized/wedahub-10-3dac52564d57-960.webp",
+    "width": 960,
+    "height": 433,
+    "fullSrc": "/optimized/wedahub-10-3dac52564d57-1917.webp",
+    "variants": [
+      {
+        "src": "/optimized/wedahub-10-3dac52564d57-480.webp",
+        "width": 480,
+        "height": 217,
+        "bytes": 3934
+      },
+      {
+        "src": "/optimized/wedahub-10-3dac52564d57-960.webp",
+        "width": 960,
+        "height": 433,
+        "bytes": 11602
+      },
+      {
+        "src": "/optimized/wedahub-10-3dac52564d57-1600.webp",
+        "width": 1600,
+        "height": 722,
+        "bytes": 25016
+      },
+      {
+        "src": "/optimized/wedahub-10-3dac52564d57-1917.webp",
+        "width": 1917,
+        "height": 865,
+        "bytes": 31756
+      }
+    ]
+  },
+  "/assets/portfolio/wedahub/wedahub-11.png": {
+    "src": "/optimized/wedahub-11-e16e2c834859-960.webp",
+    "width": 960,
+    "height": 434,
+    "fullSrc": "/optimized/wedahub-11-e16e2c834859-1917.webp",
+    "variants": [
+      {
+        "src": "/optimized/wedahub-11-e16e2c834859-480.webp",
+        "width": 480,
+        "height": 217,
+        "bytes": 6090
+      },
+      {
+        "src": "/optimized/wedahub-11-e16e2c834859-960.webp",
+        "width": 960,
+        "height": 434,
+        "bytes": 17114
+      },
+      {
+        "src": "/optimized/wedahub-11-e16e2c834859-1600.webp",
+        "width": 1600,
+        "height": 723,
+        "bytes": 35726
+      },
+      {
+        "src": "/optimized/wedahub-11-e16e2c834859-1917.webp",
+        "width": 1917,
+        "height": 866,
+        "bytes": 44516
+      }
+    ]
+  },
+  "/assets/portfolio/wedahub/wedahub-12.png": {
+    "src": "/optimized/wedahub-12-3101dc6a5f80-960.webp",
+    "width": 960,
+    "height": 430,
+    "fullSrc": "/optimized/wedahub-12-3101dc6a5f80-1912.webp",
+    "variants": [
+      {
+        "src": "/optimized/wedahub-12-3101dc6a5f80-480.webp",
+        "width": 480,
+        "height": 215,
+        "bytes": 4782
+      },
+      {
+        "src": "/optimized/wedahub-12-3101dc6a5f80-960.webp",
+        "width": 960,
+        "height": 430,
+        "bytes": 14234
+      },
+      {
+        "src": "/optimized/wedahub-12-3101dc6a5f80-1600.webp",
+        "width": 1600,
+        "height": 717,
+        "bytes": 31132
+      },
+      {
+        "src": "/optimized/wedahub-12-3101dc6a5f80-1912.webp",
+        "width": 1912,
+        "height": 857,
+        "bytes": 41082
+      }
+    ]
+  },
+  "/assets/portfolio/wedahub/wedahub-13.png": {
+    "src": "/optimized/wedahub-13-0992002327c5-960.webp",
+    "width": 960,
+    "height": 433,
+    "fullSrc": "/optimized/wedahub-13-0992002327c5-1917.webp",
+    "variants": [
+      {
+        "src": "/optimized/wedahub-13-0992002327c5-480.webp",
+        "width": 480,
+        "height": 217,
+        "bytes": 4480
+      },
+      {
+        "src": "/optimized/wedahub-13-0992002327c5-960.webp",
+        "width": 960,
+        "height": 433,
+        "bytes": 14034
+      },
+      {
+        "src": "/optimized/wedahub-13-0992002327c5-1600.webp",
+        "width": 1600,
+        "height": 722,
+        "bytes": 31542
+      },
+      {
+        "src": "/optimized/wedahub-13-0992002327c5-1917.webp",
+        "width": 1917,
+        "height": 865,
+        "bytes": 39322
+      }
+    ]
+  },
+  "/assets/portfolio/wedahub/wedahub-14.png": {
+    "src": "/optimized/wedahub-14-c939904d38f9-960.webp",
+    "width": 960,
+    "height": 433,
+    "fullSrc": "/optimized/wedahub-14-c939904d38f9-1917.webp",
+    "variants": [
+      {
+        "src": "/optimized/wedahub-14-c939904d38f9-480.webp",
+        "width": 480,
+        "height": 217,
+        "bytes": 4890
+      },
+      {
+        "src": "/optimized/wedahub-14-c939904d38f9-960.webp",
+        "width": 960,
+        "height": 433,
+        "bytes": 15234
+      },
+      {
+        "src": "/optimized/wedahub-14-c939904d38f9-1600.webp",
+        "width": 1600,
+        "height": 722,
+        "bytes": 33800
+      },
+      {
+        "src": "/optimized/wedahub-14-c939904d38f9-1917.webp",
+        "width": 1917,
+        "height": 865,
+        "bytes": 43084
+      }
+    ]
+  },
+  "/assets/portfolio/wedahub/wedahub-15.png": {
+    "src": "/optimized/wedahub-15-3bc722a7b7fb-960.webp",
+    "width": 960,
+    "height": 434,
+    "fullSrc": "/optimized/wedahub-15-3bc722a7b7fb-1917.webp",
+    "variants": [
+      {
+        "src": "/optimized/wedahub-15-3bc722a7b7fb-480.webp",
+        "width": 480,
+        "height": 217,
+        "bytes": 4320
+      },
+      {
+        "src": "/optimized/wedahub-15-3bc722a7b7fb-960.webp",
+        "width": 960,
+        "height": 434,
+        "bytes": 13968
+      },
+      {
+        "src": "/optimized/wedahub-15-3bc722a7b7fb-1600.webp",
+        "width": 1600,
+        "height": 723,
+        "bytes": 29132
+      },
+      {
+        "src": "/optimized/wedahub-15-3bc722a7b7fb-1917.webp",
+        "width": 1917,
+        "height": 866,
+        "bytes": 36942
+      }
+    ]
+  },
+  "/assets/portfolio/wedahub/wedahub-2.png": {
+    "src": "/optimized/wedahub-2-8343055f43cd-960.webp",
+    "width": 960,
+    "height": 432,
+    "fullSrc": "/optimized/wedahub-2-8343055f43cd-1916.webp",
+    "variants": [
+      {
+        "src": "/optimized/wedahub-2-8343055f43cd-480.webp",
+        "width": 480,
+        "height": 216,
+        "bytes": 15916
+      },
+      {
+        "src": "/optimized/wedahub-2-8343055f43cd-960.webp",
+        "width": 960,
+        "height": 432,
+        "bytes": 43814
+      },
+      {
+        "src": "/optimized/wedahub-2-8343055f43cd-1600.webp",
+        "width": 1600,
+        "height": 721,
+        "bytes": 91282
+      },
+      {
+        "src": "/optimized/wedahub-2-8343055f43cd-1916.webp",
+        "width": 1916,
+        "height": 863,
+        "bytes": 113580
+      }
+    ]
+  },
+  "/assets/portfolio/wedahub/wedahub-3.png": {
+    "src": "/optimized/wedahub-3-96875328a9c7-960.webp",
+    "width": 960,
+    "height": 434,
+    "fullSrc": "/optimized/wedahub-3-96875328a9c7-1917.webp",
+    "variants": [
+      {
+        "src": "/optimized/wedahub-3-96875328a9c7-480.webp",
+        "width": 480,
+        "height": 217,
+        "bytes": 13548
+      },
+      {
+        "src": "/optimized/wedahub-3-96875328a9c7-960.webp",
+        "width": 960,
+        "height": 434,
+        "bytes": 36046
+      },
+      {
+        "src": "/optimized/wedahub-3-96875328a9c7-1600.webp",
+        "width": 1600,
+        "height": 723,
+        "bytes": 70680
+      },
+      {
+        "src": "/optimized/wedahub-3-96875328a9c7-1917.webp",
+        "width": 1917,
+        "height": 866,
+        "bytes": 89484
+      }
+    ]
+  },
+  "/assets/portfolio/wedahub/wedahub-4.png": {
+    "src": "/optimized/wedahub-4-4db6dc2c380f-960.webp",
+    "width": 960,
+    "height": 432,
+    "fullSrc": "/optimized/wedahub-4-4db6dc2c380f-1917.webp",
+    "variants": [
+      {
+        "src": "/optimized/wedahub-4-4db6dc2c380f-480.webp",
+        "width": 480,
+        "height": 216,
+        "bytes": 8600
+      },
+      {
+        "src": "/optimized/wedahub-4-4db6dc2c380f-960.webp",
+        "width": 960,
+        "height": 432,
+        "bytes": 23724
+      },
+      {
+        "src": "/optimized/wedahub-4-4db6dc2c380f-1600.webp",
+        "width": 1600,
+        "height": 720,
+        "bytes": 46262
+      },
+      {
+        "src": "/optimized/wedahub-4-4db6dc2c380f-1917.webp",
+        "width": 1917,
+        "height": 863,
+        "bytes": 59382
+      }
+    ]
+  },
+  "/assets/portfolio/wedahub/wedahub-5.png": {
+    "src": "/optimized/wedahub-5-4521488dd3ef-960.webp",
+    "width": 960,
+    "height": 432,
+    "fullSrc": "/optimized/wedahub-5-4521488dd3ef-1917.webp",
+    "variants": [
+      {
+        "src": "/optimized/wedahub-5-4521488dd3ef-480.webp",
+        "width": 480,
+        "height": 216,
+        "bytes": 3494
+      },
+      {
+        "src": "/optimized/wedahub-5-4521488dd3ef-960.webp",
+        "width": 960,
+        "height": 432,
+        "bytes": 9884
+      },
+      {
+        "src": "/optimized/wedahub-5-4521488dd3ef-1600.webp",
+        "width": 1600,
+        "height": 720,
+        "bytes": 21414
+      },
+      {
+        "src": "/optimized/wedahub-5-4521488dd3ef-1917.webp",
+        "width": 1917,
+        "height": 863,
+        "bytes": 26834
+      }
+    ]
+  },
+  "/assets/portfolio/wedahub/wedahub-6.png": {
+    "src": "/optimized/wedahub-6-359635188fb3-960.webp",
+    "width": 960,
+    "height": 431,
+    "fullSrc": "/optimized/wedahub-6-359635188fb3-1917.webp",
+    "variants": [
+      {
+        "src": "/optimized/wedahub-6-359635188fb3-480.webp",
+        "width": 480,
+        "height": 216,
+        "bytes": 3196
+      },
+      {
+        "src": "/optimized/wedahub-6-359635188fb3-960.webp",
+        "width": 960,
+        "height": 431,
+        "bytes": 8772
+      },
+      {
+        "src": "/optimized/wedahub-6-359635188fb3-1600.webp",
+        "width": 1600,
+        "height": 719,
+        "bytes": 18284
+      },
+      {
+        "src": "/optimized/wedahub-6-359635188fb3-1917.webp",
+        "width": 1917,
+        "height": 861,
+        "bytes": 22768
+      }
+    ]
+  },
+  "/assets/portfolio/wedahub/wedahub-7.png": {
+    "src": "/optimized/wedahub-7-1222150b644d-960.webp",
+    "width": 960,
+    "height": 432,
+    "fullSrc": "/optimized/wedahub-7-1222150b644d-1917.webp",
+    "variants": [
+      {
+        "src": "/optimized/wedahub-7-1222150b644d-480.webp",
+        "width": 480,
+        "height": 216,
+        "bytes": 23134
+      },
+      {
+        "src": "/optimized/wedahub-7-1222150b644d-960.webp",
+        "width": 960,
+        "height": 432,
+        "bytes": 63874
+      },
+      {
+        "src": "/optimized/wedahub-7-1222150b644d-1600.webp",
+        "width": 1600,
+        "height": 719,
+        "bytes": 130236
+      },
+      {
+        "src": "/optimized/wedahub-7-1222150b644d-1917.webp",
+        "width": 1917,
+        "height": 862,
+        "bytes": 171594
+      }
+    ]
+  },
+  "/assets/portfolio/wedahub/wedahub-8.png": {
+    "src": "/optimized/wedahub-8-fed2ec68db17-960.webp",
+    "width": 960,
+    "height": 432,
+    "fullSrc": "/optimized/wedahub-8-fed2ec68db17-1917.webp",
+    "variants": [
+      {
+        "src": "/optimized/wedahub-8-fed2ec68db17-480.webp",
+        "width": 480,
+        "height": 216,
+        "bytes": 14948
+      },
+      {
+        "src": "/optimized/wedahub-8-fed2ec68db17-960.webp",
+        "width": 960,
+        "height": 432,
+        "bytes": 38584
+      },
+      {
+        "src": "/optimized/wedahub-8-fed2ec68db17-1600.webp",
+        "width": 1600,
+        "height": 720,
+        "bytes": 78244
+      },
+      {
+        "src": "/optimized/wedahub-8-fed2ec68db17-1917.webp",
+        "width": 1917,
+        "height": 863,
+        "bytes": 99258
+      }
+    ]
+  },
+  "/assets/portfolio/wedahub/wedahub-logo.png": {
+    "src": "/optimized/wedahub-logo-af7e2e85f1e3-1280.webp",
+    "width": 1280,
+    "height": 315,
+    "fullSrc": "/optimized/wedahub-logo-af7e2e85f1e3-1280.webp",
+    "variants": [
+      {
+        "src": "/optimized/wedahub-logo-af7e2e85f1e3-320.webp",
+        "width": 320,
+        "height": 79,
+        "bytes": 14754
+      },
+      {
+        "src": "/optimized/wedahub-logo-af7e2e85f1e3-640.webp",
+        "width": 640,
+        "height": 157,
+        "bytes": 36516
+      },
+      {
+        "src": "/optimized/wedahub-logo-af7e2e85f1e3-1280.webp",
+        "width": 1280,
+        "height": 315,
+        "bytes": 111100
+      }
+    ]
+  },
+  "/email-icon.jpg": {
+    "src": "/optimized/email-icon-3aaee8e715ff-640.webp",
+    "width": 640,
+    "height": 400,
+    "fullSrc": "/optimized/email-icon-3aaee8e715ff-640.webp",
+    "variants": [
+      {
+        "src": "/optimized/email-icon-3aaee8e715ff-480.webp",
+        "width": 480,
+        "height": 300,
+        "bytes": 2412
+      },
+      {
+        "src": "/optimized/email-icon-3aaee8e715ff-640.webp",
+        "width": 640,
+        "height": 400,
+        "bytes": 3270
+      }
+    ]
+  },
+  "/my_photo.jpeg": {
+    "src": "/optimized/my_photo-f9eae3bda81b-640.webp",
+    "width": 640,
+    "height": 640,
+    "fullSrc": "/optimized/my_photo-f9eae3bda81b-960.webp",
+    "variants": [
+      {
+        "src": "/optimized/my_photo-f9eae3bda81b-320.webp",
+        "width": 320,
+        "height": 320,
+        "bytes": 9570
+      },
+      {
+        "src": "/optimized/my_photo-f9eae3bda81b-640.webp",
+        "width": 640,
+        "height": 640,
+        "bytes": 22476
+      },
+      {
+        "src": "/optimized/my_photo-f9eae3bda81b-960.webp",
+        "width": 960,
+        "height": 960,
+        "bytes": 37036
+      }
+    ]
+  }
+}

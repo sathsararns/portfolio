@@ -1,3 +1,4 @@
+import { responsiveImage } from "@/utils/images";
 import site from "@/data/site.config.json";
 import { achievements } from "@/data/achievements.data";
 import { GITHUB, LINKEDIN } from "@/data/constants.data";
@@ -31,7 +32,7 @@ const person = {
   name: site.name,
   jobTitle: site.role,
   url: site.url,
-  image: publicUrl("/my_photo.jpeg"),
+  image: publicUrl(responsiveImage("/my_photo.jpeg").src),
   sameAs: [LINKEDIN, GITHUB],
   award: achievements.map((item) => [item.award, item.event, item.year].filter(Boolean).join(" - ")),
 };
@@ -53,7 +54,7 @@ export function projectStructuredData(project: Project) {
   return {
     "@context": "https://schema.org",
     "@graph": [
-      { "@type": "CreativeWork", "@id": url + "#project", name: project.title, description: projectMetadata(project).description, url, image: publicUrl(project.banner), creator: { "@type": "Person", "@id": person["@id"], name: site.name, url: site.url }, keywords: project.details.technologies, ...(project.githubUrl ? { sameAs: [project.githubUrl] } : {}) },
+      { "@type": "CreativeWork", "@id": url + "#project", name: project.title, description: projectMetadata(project).description, url, image: publicUrl(responsiveImage(project.banner).src), creator: { "@type": "Person", "@id": person["@id"], name: site.name, url: site.url }, keywords: project.details.technologies, ...(project.githubUrl ? { sameAs: [project.githubUrl] } : {}) },
       { "@type": "BreadcrumbList", itemListElement: [
         { "@type": "ListItem", position: 1, name: "Portfolio", item: site.url },
         { "@type": "ListItem", position: 2, name: project.title, item: url },

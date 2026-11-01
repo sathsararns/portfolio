@@ -1,7 +1,6 @@
 "use client";
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
-import { assetPath } from "@/utils/asset-path";
-import Image from "next/image";
+import { responsiveImage } from "@/utils/images";
 import { encode } from "qss";
 import React from "react";
 import {
@@ -58,8 +57,6 @@ type LinkPreviewProps = {
   className?: string;
   width?: number;
   height?: number;
-  quality?: number;
-  layout?: string;
 } & (
     | { isStatic: true; imageSrc: string }
     | { isStatic?: false; imageSrc?: never }
@@ -71,8 +68,6 @@ const LinkPreview = ({
   className,
   width = 200,
   height = 125,
-  quality = 50,
-  layout = "fixed",
   isStatic = false,
   imageSrc = "",
 }: LinkPreviewProps) => {
@@ -96,11 +91,6 @@ const LinkPreview = ({
 
   const [isOpen, setOpen] = React.useState(false);
 
-  const [isMounted, setIsMounted] = React.useState(false);
-
-  React.useEffect(() => {
-    setIsMounted(true);
-  }, []);
 
   const springConfig = { stiffness: 100, damping: 15 };
   const x = useMotionValue(0);
@@ -116,19 +106,6 @@ const LinkPreview = ({
 
   return (
     <>
-      {isMounted ? (
-        <div className="hidden">
-          <Image
-            src={assetPath(src)}
-            width={width}
-            height={height}
-            quality={quality}
-            layout={layout}
-            priority={true}
-            alt="hidden image"
-          />
-        </div>
-      ) : null}
 
       <HoverCardPrimitive.Root
         openDelay={50}
@@ -178,13 +155,12 @@ const LinkPreview = ({
                   style={{ fontSize: 0 }}
                   target="_blank"
                 >
-                  <Image
-                    src={assetPath(isStatic ? imageSrc : src)}
+                  <img
+                    {...responsiveImage(isStatic ? imageSrc : src, width + "px")}
                     width={width}
                     height={height}
-                    quality={quality}
-                    layout={layout}
-                    priority={true}
+                    loading="eager"
+                    decoding="async"
                     className="rounded-lg"
                     alt="preview image"
                   />

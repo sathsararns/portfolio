@@ -3,90 +3,23 @@ import styles from "./style.module.scss";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { opacity, slideUp } from "./anim";
-import { detectMobile } from "@/data/utils";
-import { enqueueSnackbar } from "notistack";
-
-const words = [
-  "Hello",
-  "Bonjour",
-  "Ciao",
-  "Olà",
-  "やあ",
-  "Hallå",
-  "Guten tag",
-  "Hallo",
-];
 
 export default function Preloader() {
-  const [index, setIndex] = useState(0);
   const [dimension, setDimension] = useState({ width: 0, height: 0 });
   useEffect(() => {
     setDimension({ width: window.innerWidth, height: window.innerHeight });
-    if (detectMobile()) {
-      setTimeout(() => {
-        enqueueSnackbar(
-          "For the best experience, checkout my portfolio on larger screens.",
-          {
-            persist: true,
-            variant: "info",
-          }
-        );
-      }, 6000);
-    }
   }, []);
-
-  useEffect(() => {
-    if (index == words.length - 1) return;
-    setTimeout(
-      () => {
-        setIndex(index + 1);
-      },
-      index == 0 ? 1000 : 150
-    );
-  }, [index]);
-
-  const initialPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${
-    dimension.height
-  } Q${dimension.width / 2} ${dimension.height + 300} 0 ${
-    dimension.height
-  }  L0 0`;
-  const targetPath = `M0 0 L${dimension.width} 0 L${dimension.width} ${
-    dimension.height
-  } Q${dimension.width / 2} ${dimension.height} 0 ${dimension.height}  L0 0`;
-
+  const { width, height } = dimension;
   const curve = {
-    initial: {
-      d: initialPath,
-      transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1] },
-    },
-    exit: {
-      d: targetPath,
-      transition: { duration: 0.7, ease: [0.76, 0, 0.24, 1], delay: 0.3 },
-    },
+    initial: { d: `M0 0 L${width} 0 L${width} ${height} Q${width / 2} ${height + 300} 0 ${height} L0 0` },
+    exit: { d: `M0 0 L${width} 0 L${width} ${height} Q${width / 2} ${height} 0 ${height} L0 0`, transition: { duration: 0.3, ease: [0.76, 0, 0.24, 1] } },
   };
-
   return (
-    <motion.div
-      variants={slideUp}
-      initial="initial"
-      exit="exit"
-      className={styles.introduction}
-    >
-      {dimension.width > 0 && (
-        <>
-          <motion.p variants={opacity} initial="initial" animate="enter">
-            <span></span>
-            {words[index]}
-          </motion.p>
-          <svg>
-            <motion.path
-              variants={curve}
-              initial="initial"
-              exit="exit"
-            ></motion.path>
-          </svg>
-        </>
-      )}
+    <motion.div variants={slideUp} initial="initial" exit="exit" className={styles.introduction} aria-hidden="true">
+      {width > 0 && <>
+        <motion.p variants={opacity} initial="initial" animate="enter"><span />Hello</motion.p>
+        <svg><motion.path variants={curve} initial="initial" exit="exit" /></svg>
+      </>}
     </motion.div>
   );
 }

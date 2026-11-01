@@ -1,3 +1,4 @@
+import { responsiveImage } from "@/utils/images";
 import type { GetStaticPaths, GetStaticProps } from "next";
 import Seo from "@/components/seo.component";
 import { projectMetadata, projectStructuredData } from "@/utils/seo";
@@ -171,7 +172,7 @@ export default function ProjectPage({ project }: { project: Project }) {
                   <img
                     src={project.details.architecture.diagram}
                     alt={project.details.architecture.alt ?? `${project.title} architecture: React frontend, Express backend, MongoDB, FastAPI / LangGraph, Groq, and external integrations`}
-                    loading="lazy"
+                    loading="lazy" decoding="async"
                     className={project.slug === "opsyntra" || project.slug === "voya" ? "w-full min-w-[1200px]" : "w-full min-w-[900px]"}
                   />
                 </div>
@@ -221,9 +222,9 @@ export default function ProjectPage({ project }: { project: Project }) {
               className="bg-black rounded-2xl p-1 border border-white/10 overflow-hidden"
             >
               <img
-                src={img.src}
+                {...responsiveImage(img.src, "(min-width: 768px) 560px, 95vw")}
                 alt={`${project.title} ${img.id}`}
-                loading="lazy"
+                loading="lazy" decoding="async"
                 className="w-full h-full object-cover rounded-2xl"
               />
             </button>
@@ -237,7 +238,9 @@ export default function ProjectPage({ project }: { project: Project }) {
           onClick={() => setSelected(null)}
         >
           <img
-            src={selected}
+            {...responsiveImage(selected, "95vw", true)}
+            loading="eager"
+            decoding="async"
             alt={project.title}
             className="max-h-full max-w-full rounded-2xl"
           />

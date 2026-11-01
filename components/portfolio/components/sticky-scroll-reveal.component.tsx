@@ -1,4 +1,5 @@
 "use client";
+import { responsiveImage } from "@/utils/images";
 import React, { useRef } from "react";
 import { useMotionValueEvent, useScroll } from "framer-motion";
 import { motion } from "framer-motion";
@@ -120,7 +121,9 @@ export const StickyScroll = ({
                   onClick={() => rememberProjectPosition(item.slug)}
                 >
                   <img
-                    src={item.banner}
+                    {...responsiveImage(item.banner ?? "", "(min-width: 768px) 600px, 90vw")}
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover rounded-2xl min-h-[25vh]"
                     alt={item.title}
                   />
