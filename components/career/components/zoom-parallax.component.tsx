@@ -13,33 +13,41 @@ export default function ImageParallax() {
   const scale4 = useTransform(scrollYProgress, [0, 1], [1, 4]);
   const scale6 = useTransform(scrollYProgress, [0, 1], [1, 6]);
   const scale7 = useTransform(scrollYProgress, [0, 1], [1, 7]);
-  const scale8 = useTransform(scrollYProgress, [0, 1], [1, 8]);
+  // const scale8 = useTransform(scrollYProgress, [0, 1], [1, 8]);
   const scale9 = useTransform(scrollYProgress, [0, 1], [1, 9]);
 
   const pictures = [
     {
       src: "/assets/portfolio.png",
+      layoutSlot: 1,
       scale: scale4,
     },
     {
       src: "/assets/portfolio/wedahub/wedahub-logo.jpg",
+      layoutSlot: 2,
       scale: scale6,
     },
+    // SWE logo temporarily disabled; its original layout slot is retained.
+//     {
+//       src: "/assets/portfolio/swe/swe-logo.png",
+//       layoutSlot: 3,
+//       scale: scale4,
+//     },
     {
-      src: "/assets/portfolio/swe/swe-logo.png",
-      scale: scale4,
-    },
-    {
-      src: "/assets/portfolio/flux/flux-logo.png",
+      src: "/assets/portfolio/voya/voya-logo.png",
+      layoutSlot: 4,
       scale: scale7,
     },
-    {
-      src: "/assets/portfolio/quotes-app/quotes-logo.png",
-      scale: scale8,
-    },
+  // Quotes App temporarily disabled; uncomment to restore.
+//     {
+//       src: "/assets/portfolio/quotes-app/quotes-logo.png",
+//       layoutSlot: 5,
+//       scale: scale8,
+//     },
 
     {
       src: "/assets/portfolio/opsyntra/opsyntra-logo.png?v=51c18488",
+      layoutSlot: 6,
       scale: scale9,
     },
   ];
@@ -51,9 +59,9 @@ export default function ImageParallax() {
       id="portfolio"
     >
       <div className={styles.sticky}>
-        {pictures.map(({ src, scale }, index) => {
+        {pictures.map(({ src, scale, layoutSlot }, index) => {
           return (
-            <motion.div key={index} style={{ scale }} className={styles.el}>
+            <motion.div key={index} style={{ scale }} className={styles.el} data-layout-slot={layoutSlot}>
               <div className={styles.imageContainer}>
                 {/* <Image src={src} fill alt="image" placeholder="blur" /> */}
                 <img src={src} alt="image" className="" />

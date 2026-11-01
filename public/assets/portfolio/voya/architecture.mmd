@@ -1,0 +1,41 @@
+flowchart TD
+    UI["React / TypeScript browser app"]
+    N["Nginx: static files and API proxy"]
+    A["FastAPI: authentication and conversation ownership"]
+    PG[("PostgreSQL: users, preferences and exchanges")]
+    R[("Redis: authentication limits, reset tokens and revocation")]
+    C["Deterministic routing, history and trip preflight"]
+    K[("Pinecone: shared travel knowledge")]
+    M[("Pinecone: account-scoped memory")]
+    L["Local budget and seasonal climate functions"]
+    B["Prompt construction"]
+    G["Groq-hosted structured generation"]
+    V["Normalization and rule-based validation"]
+    F["Clarification / unsupported-information fallback"]
+    D["Persistence and SSE delivery"]
+    T["Frontend progressive reveal"]
+    I["Manual document-ingestion CLI"]
+    X["PDF text / reviewed sidecar / local OCR"]
+
+    UI --> N --> A
+    A <--> PG
+    A <--> R
+    A --> C
+    C -->|Early clarification| F
+    C --> K
+    C --> M
+    C --> L
+    C --> B
+    K --> B
+    M --> B
+    L --> B
+    B -->|Unsupported factual request| F
+    B --> G
+    G --> V
+    V -->|Correction when needed| G
+    V --> D
+    F --> D
+    D --> PG
+    D -->|Eligible learning| M
+    D --> T --> UI
+    I --> X -->|Chunked text; integrated embeddings| K

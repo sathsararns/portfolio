@@ -166,7 +166,7 @@ export default function ProjectPage({ project }: { project: Project }) {
                     src={project.details.architecture.diagram}
                     alt={project.details.architecture.alt ?? `${project.title} architecture: React frontend, Express backend, MongoDB, FastAPI / LangGraph, Groq, and external integrations`}
                     loading="lazy"
-                    className={project.slug === "opsyntra" ? "w-full min-w-[1200px]" : "w-full min-w-[900px]"}
+                    className={project.slug === "opsyntra" || project.slug === "voya" ? "w-full min-w-[1200px]" : "w-full min-w-[900px]"}
                   />
                 </div>
                 <figcaption className="mt-4 max-w-4xl text-sm text-slate-400 leading-relaxed">
