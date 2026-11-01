@@ -23,7 +23,7 @@ export default function ImageParallax() {
       scale: scale4,
     },
     {
-      src: "/assets/portfolio/wedahub/wedahub-logo.jpg",
+      src: "/assets/portfolio/wedahub/wedahub-logo.png?v=77327234",
       layoutSlot: 2,
       scale: scale6,
     },
