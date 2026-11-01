@@ -9,7 +9,9 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>Sathsara Ranasooriya | AI/ML Engineer</title>
-        <link rel="icon" href={assetPath("/favicon.ico")} />
+        <link rel="icon" type="image/x-icon" href={assetPath("/favicon.ico?v=9ba1db5c")} />
+        <link rel="icon" type="image/png" sizes="96x96" href={assetPath("/favicon.png?v=9ba1db5c")} />
+        <link rel="apple-touch-icon" sizes="180x180" href={assetPath("/apple-touch-icon.png?v=9ba1db5c")} />
       </Head>{" "}
       <div className="hidden lg:block">
         <AnimatedCursor
