@@ -1,12 +1,12 @@
 # GitHub Pages deployment
 
-This checkout is configured for the account site at https://sathsararns.github.io/.
-Use a repository named exactly `sathsararns.github.io`. A repository with a different
-name would need changes to asset paths and basePath before deployment.
+This checkout is configured for the project site at https://sathsararns.github.io/portfolio/.
+Use the `sathsararns/portfolio` repository. The workflow sets
+`NEXT_PUBLIC_BASE_PATH=/portfolio`; localhost development uses the root path.
 
 ## First publication
 
-1. Create the `sathsararns.github.io` repository on the `sathsararns` GitHub account.
+1. Create the `portfolio` repository on the `sathsararns` GitHub account.
    For a free GitHub account, use a public repository.
 2. In the repository, open **Settings > Pages** and select **GitHub Actions** as
    the build and deployment source.
@@ -21,7 +21,7 @@ name would need changes to asset paths and basePath before deployment.
    changes and push `master` or `main`. Do not upload `.env`, `node_modules`,
    `.next`, or `out`.
 5. Watch **Actions > Deploy portfolio to GitHub Pages**. After a successful run,
-   open https://sathsararns.github.io/ and verify the three project pages and form.
+   open https://sathsararns.github.io/portfolio/ and verify the three project pages and form.
 
 If you use GitHub CLI and its login has expired, run `gh auth login --hostname github.com`
 first. Never paste authentication tokens into chat or commit them to the repository.
@@ -44,3 +44,7 @@ Edit this same checkout, verify it locally, commit and push to the production
 branch. The workflow rebuilds and deploys the site at the same URL. Changing an
 EmailJS repository secret also requires a fresh build; rerun the workflow from
 the Actions tab or push a new commit.
+
+To test the production prefix locally in PowerShell, set
+`$env:NEXT_PUBLIC_BASE_PATH="/portfolio"`, run `npm run build`, then
+`Remove-Item Env:NEXT_PUBLIC_BASE_PATH`. Serve `out/` at the `/portfolio/` mount path.

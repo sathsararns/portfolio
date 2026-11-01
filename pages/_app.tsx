@@ -1,3 +1,4 @@
+import { assetPath } from "@/utils/asset-path";
 import "@/styles/globals.css";
 import type { AppProps } from "next/app";
 import Head from "next/head";
@@ -8,6 +9,7 @@ export default function App({ Component, pageProps }: AppProps) {
     <>
       <Head>
         <title>Sathsara Ranasooriya</title>
+        <link rel="icon" href={assetPath("/favicon.ico")} />
       </Head>{" "}
       <div className="hidden lg:block">
         <AnimatedCursor

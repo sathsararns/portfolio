@@ -1,3 +1,4 @@
+import { assetPath } from "@/utils/asset-path";
 import { motion, useReducedMotion } from "framer-motion";
 import { courierPrime } from "@/utils/fonts";
 import { Achievement, achievements } from "@/data/achievements.data";
@@ -118,7 +119,7 @@ export default function Achievements({
               >
                 {achievement.image && (
                   <img
-                    src={achievement.image}
+                    src={assetPath(achievement.image)}
                     alt={`${achievement.event} — ${achievement.award}`}
                     loading="lazy"
                     className="aspect-[16/9] w-full object-cover"

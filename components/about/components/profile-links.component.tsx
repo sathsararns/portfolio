@@ -1,5 +1,6 @@
 "use client";
 import * as HoverCardPrimitive from "@radix-ui/react-hover-card";
+import { assetPath } from "@/utils/asset-path";
 import Image from "next/image";
 import { encode } from "qss";
 import React from "react";
@@ -118,7 +119,7 @@ const LinkPreview = ({
       {isMounted ? (
         <div className="hidden">
           <Image
-            src={src}
+            src={assetPath(src)}
             width={width}
             height={height}
             quality={quality}
@@ -178,7 +179,7 @@ const LinkPreview = ({
                   target="_blank"
                 >
                   <Image
-                    src={isStatic ? imageSrc : src}
+                    src={assetPath(isStatic ? imageSrc : src)}
                     width={width}
                     height={height}
                     quality={quality}

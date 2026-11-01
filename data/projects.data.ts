@@ -1,3 +1,4 @@
+import { assetPath } from "@/utils/asset-path";
 // import { GITHUB } from "./constants.data";
 import { projectDetails, type ProjectDetails } from "./project-details.data";
 
@@ -20,7 +21,7 @@ const images = (folder: string, prefix: string, count: number) =>
     return { id, src: `/assets/portfolio/${folder}/${id}` };
   });
 
-export const projects: Project[] = [
+const projectEntries: Project[] = [
   // SWE temporarily disabled; uncomment this entry to restore the project.
 //   {
 //     slug: "star-wars-explorer",
@@ -95,3 +96,16 @@ export const projects: Project[] = [
     githubUrl: "https://github.com/sathsararns/voya-ai",
   },
 ];
+
+// Keep project assets valid for both localhost and GitHub project Pages.
+export const projects: Project[] = projectEntries.map((project) => ({
+  ...project,
+  banner: assetPath(project.banner),
+  images: project.images.map((image) => ({ ...image, src: assetPath(image.src) })),
+  details: {
+    ...project.details,
+    architecture: project.details.architecture
+      ? { ...project.details.architecture, diagram: assetPath(project.details.architecture.diagram) }
+      : undefined,
+  },
+}));

@@ -1,3 +1,4 @@
+import { assetPath } from "@/utils/asset-path";
 import styles from "./styles.module.scss";
 
 import { useScroll, useTransform, motion } from "framer-motion";
@@ -64,7 +65,7 @@ export default function ImageParallax() {
             <motion.div key={index} style={{ scale }} className={styles.el} data-layout-slot={layoutSlot}>
               <div className={styles.imageContainer}>
                 {/* <Image src={src} fill alt="image" placeholder="blur" /> */}
-                <img src={src} alt="image" className="" />
+                <img src={assetPath(src)} alt="image" className="" />
               </div>
             </motion.div>
           );

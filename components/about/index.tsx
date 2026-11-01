@@ -1,3 +1,4 @@
+import { assetPath } from "@/utils/asset-path";
 import { downloadPdf } from "@/data/utils";
 import { AboutLinks } from "./components/profile-links.component";
 
@@ -13,7 +14,7 @@ export default function About() {
         </div>
         <div className="px-4 justify-self-center max-w-[500px] order-first md:order-first lg:order-last xl:order-last 2xl:order-last relative flex items-end justify-end">
           <img
-            src="/my_photo.jpeg"
+            src={assetPath("/my_photo.jpeg")}
             alt="sathsara ranasooriya"
             className="rounded-full w-full border-2 p-2 hover:p-0 duration-300 self-start"
           />

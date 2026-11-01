@@ -6,6 +6,7 @@ const nextConfig = (phase) => ({
   distDir: phase === PHASE_DEVELOPMENT_SERVER ? ".next-dev" : ".next",
   // GitHub Pages serves the generated out/ directory without a Node.js server.
   output: "export",
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH || "",
   trailingSlash: true,
   reactStrictMode: false,
   devIndicators: {
