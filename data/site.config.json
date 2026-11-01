@@ -1,0 +1,30 @@
+{
+  "name": "Sathsara Ranasooriya",
+  "role": "AI/ML Engineer",
+  "url": "https://sathsararns.github.io/portfolio/",
+  "title": "Sathsara Ranasooriya | AI/ML Engineer",
+  "description": "Sathsara Ranasooriya, AI/ML Engineer building machine learning pipelines, RAG applications and AI assistants. Explore projects, skills and achievements.",
+  "projects": {
+    "wedahub": {
+      "title": "WedaHub | AI Service Booking | Sathsara Ranasooriya",
+      "description": "Explore WedaHub, a service booking application with a LangGraph AI assistant, provider search and booking management, built with React, Express and FastAPI.",
+      "headline": "WedaHub",
+      "subtitle": "AI-assisted service booking",
+      "technologies": "React | Express | MongoDB | FastAPI | LangGraph"
+    },
+    "opsyntra": {
+      "title": "Opsyntra | Churn Prediction & Streaming | Sathsara Ranasooriya",
+      "description": "Explore Opsyntra, a customer churn prediction and streaming analytics project using Python, scikit-learn, Kafka, PostgreSQL, MLflow and Next.js.",
+      "headline": "Opsyntra",
+      "subtitle": "Customer churn prediction and streaming analytics",
+      "technologies": "Python | scikit-learn | Kafka | PostgreSQL | MLflow"
+    },
+    "voya": {
+      "title": "Voya AI | Sri Lanka Travel Assistant | Sathsara Ranasooriya",
+      "description": "Explore Voya AI, a Sri Lanka travel assistant combining document RAG, account memory and validated itinerary generation with FastAPI, React and Pinecone.",
+      "headline": "Voya AI",
+      "subtitle": "Conversational travel planning for Sri Lanka",
+      "technologies": "React | FastAPI | Document RAG | Pinecone | PostgreSQL"
+    }
+  }
+}

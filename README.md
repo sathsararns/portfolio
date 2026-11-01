@@ -1,40 +1,48 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Sathsara Ranasooriya - AI/ML Engineer Portfolio
 
-## Getting Started
+Live portfolio: https://sathsararns.github.io/portfolio/
 
-First, run the development server:
+A Next.js portfolio featuring AI assistants, machine learning pipelines and data
+engineering projects:
 
-```bash
+- [WedaHub](https://sathsararns.github.io/portfolio/projects/wedahub/): service booking with an AI assistant.
+- [Opsyntra](https://sathsararns.github.io/portfolio/projects/opsyntra/): customer churn prediction and streaming analytics.
+- [Voya AI](https://sathsararns.github.io/portfolio/projects/voya/): document-backed travel planning for Sri Lanka.
+
+Built with Next.js, React, TypeScript, Tailwind CSS and Framer Motion. Courier Prime
+fonts are served locally. GitHub Actions builds and publishes a static export to
+GitHub Pages.
+
+## Local development
+
+Use Node.js 22 and npm:
+
+```powershell
+npm ci
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000. Development files are cached in `.next-dev/` so a
+production build can run alongside the development server.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+The contact form uses these browser-facing EmailJS settings in a local `.env`:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```text
+NEXT_PUBLIC_EMAIL_JS_SERVICE_ID=your-service-id
+NEXT_PUBLIC_EMAIL_JS_TEMPLATE_ID=your-template-id
+NEXT_PUBLIC_EMAIL_JS_USER_ID=your-public-key
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+## Production and future updates
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```powershell
+$env:NEXT_PUBLIC_BASE_PATH="/portfolio"
+npm run build
+Remove-Item Env:NEXT_PUBLIC_BASE_PATH
+```
 
-## Learn More
+The build emits `out/`, including the sitemap. Push source changes to `master` to
+rebuild and deploy automatically. `next start` does not serve this static export.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+See [DEPLOYMENT.md](DEPLOYMENT.md) for hosting details and [SEO.md](SEO.md) for
+metadata, sitemap and Google Search Console setup.

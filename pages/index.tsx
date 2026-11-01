@@ -1,3 +1,6 @@
+import Seo from "@/components/seo.component";
+import { homeStructuredData, site } from "@/utils/seo";
+import { projects } from "@/data/projects.data";
 import { courierPrime } from "@/utils/fonts";
 import { Lamp } from "@/components/hero-title";
 import { AnimatePresence } from "framer-motion";
@@ -17,8 +20,10 @@ import { getProjectPosition } from "@/utils/portfolio-scroll";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
+  const [hasMounted, setHasMounted] = useState(false);
   const lenisRef = useRef<Lenis | null>(null);
   useEffect(() => {
+    setHasMounted(true);
     const lenis = new Lenis();
     lenisRef.current = lenis;
     let animationFrame: number;
@@ -46,7 +51,7 @@ export default function Home() {
   useEffect(() => {
     if (isLoading || !window.location.hash) return;
 
-    // Page sections only exist after the preloader has finished.
+    // Restore the section position after the preloader and layout settle.
     const animationFrame = requestAnimationFrame(() => {
       const id = window.location.hash.slice(1);
       const project = document.getElementById(id);
@@ -92,6 +97,7 @@ export default function Home() {
 
   return (
     <main className={`${courierPrime.className} max-w-[1920px] mx-auto`}>
+      <Seo title={site.title} description={site.description} structuredData={homeStructuredData(projects)} />
       <SnackbarProvider
         action={(snackbarKey) => (
           <SnackbarCloseButton snackbarKey={snackbarKey} />
@@ -102,20 +108,16 @@ export default function Home() {
         }}
       >
         <AnimatePresence mode="wait">
-          {isLoading && <Preloader />}
+          {hasMounted && isLoading && <Preloader />}
         </AnimatePresence>
         <Header />
-        {!isLoading && (
-          <>
-            <Lamp />
-            <About />
-            <Skills />
-            <Achievements />
-            <Career />
-            <Portfolio />
-            <Contact />
-          </>
-        )}
+        <Lamp />
+        <About />
+        <Skills />
+        <Achievements />
+        <Career />
+        <Portfolio />
+        <Contact />
       </SnackbarProvider>
     </main>
   );

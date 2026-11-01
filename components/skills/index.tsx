@@ -85,16 +85,16 @@ export default function Skills() {
     <>
       <div className="mt-10">
         <div className="px-4">
-          <p className="text-neutral-400 text-xl md:text-3xl max-w-3xl text-left mb-10">
+          <h2 className="text-neutral-400 text-xl md:text-3xl max-w-3xl text-left mb-10">
             What I work with
-          </p>
+          </h2>
           <div className="flex flex-wrap gap-3 max-w-3xl  text-left mb-10">
             {skills.map((skill) => (
               <Chip key={skill} text={skill} />
             ))}
           </div>
         </div>
-        <main className="overflow-hidden mt-[200px]" id="journey">
+        <div className="overflow-hidden mt-[200px]" id="journey">
           <div ref={container} className="flex flex-col gap-3 ">
             {skillLogoRows.map((logos, index) => (
               <Slide
@@ -106,7 +106,7 @@ export default function Skills() {
               />
             ))}
           </div>
-        </main>
+        </div>
       </div>
     </>
   );

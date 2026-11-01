@@ -8,7 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
-        <title>Sathsara Ranasooriya</title>
+        <title>Sathsara Ranasooriya | AI/ML Engineer</title>
         <link rel="icon" href={assetPath("/favicon.ico")} />
       </Head>{" "}
       <div className="hidden lg:block">

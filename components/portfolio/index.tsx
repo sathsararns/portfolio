@@ -25,9 +25,7 @@ export default function Portfolio() {
   });
   return (
     <div className=" mt-[200px]">
-      <p className="block xl:hidden text-neutral-400 text-xl md:text-3xl max-w-3xl text-left mb-10 px-4 sticky top-0 z-10000">
-        Recent Works
-      </p>
+      <h2 className="block xl:hidden text-neutral-400 text-xl md:text-3xl max-w-3xl text-left mb-10 px-4 sticky top-0 z-10000">Recent Works</h2>
       <StickyScroll content={content} />
       <div ref={container} className="overflow-hidden mt-[200px]">
         <Slide

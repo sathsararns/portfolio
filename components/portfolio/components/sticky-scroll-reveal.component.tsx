@@ -84,9 +84,7 @@ export const StickyScroll = ({
       className="flex justify-around relative rounded-md p-10"
       ref={ref}
     >
-      <p className="hidden xl:block text-neutral-200 text-xl md:text-3xl max-w-3xl text-left mb-10 px-4 sticky top-[100px] z-10000 h-full mt-[80px]">
-        Recent Works
-      </p>
+      <h2 className="hidden xl:block text-neutral-200 text-xl md:text-3xl max-w-3xl text-left mb-10 px-4 sticky top-[100px] z-10000 h-full mt-[80px]">Recent Works</h2>
       <div className="div relative flex items-start px-4">
         <div className="max-w-2xl">
           {content.map((item, index) => (
@@ -128,7 +126,7 @@ export const StickyScroll = ({
                   />
                 </Link>
               </motion.div>
-              <motion.h2
+              <motion.h3
                 initial={{
                   opacity: 0,
                 }}
@@ -144,7 +142,7 @@ export const StickyScroll = ({
                 >
                   {item.title}
                 </Link>
-              </motion.h2>
+              </motion.h3>
               <motion.p
                 initial={{
                   opacity: 0,

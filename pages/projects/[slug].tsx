@@ -1,5 +1,6 @@
 import type { GetStaticPaths, GetStaticProps } from "next";
-import Head from "next/head";
+import Seo from "@/components/seo.component";
+import { projectMetadata, projectStructuredData } from "@/utils/seo";
 import { courierPrime } from "@/utils/fonts";
 import Link from "next/link";
 import { useState } from "react";
@@ -21,15 +22,20 @@ export const getStaticProps: GetStaticProps<{ project: Project }> = async ({
 
 export default function ProjectPage({ project }: { project: Project }) {
   const [selected, setSelected] = useState<string | null>(null);
+  const metadata = projectMetadata(project);
 
   return (
     <main
       className={`${courierPrime.className} min-h-screen bg-[#020617] text-slate-100 px-4 md:px-10 py-10`}
       style={courierPrime.style}
     >
-      <Head>
-        <title>{`${project.title} | Sathsara Ranasooriya`}</title>
-      </Head>
+      <Seo
+        {...metadata}
+        route={"projects/" + project.slug}
+        image={"/social/" + project.slug + ".png"}
+        imageAlt={project.title + " - project by Sathsara Ranasooriya"}
+        structuredData={projectStructuredData(project)}
+      />
 
       <div className="max-w-6xl mx-auto">
         <Link
