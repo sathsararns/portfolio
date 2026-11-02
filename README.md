@@ -57,5 +57,5 @@ in `public/`; new or replaced images are processed on the next development/build
 
 The page selects image sizes with `srcset`, reserves image dimensions and lazy-loads
 offscreen images. Link preview images load on hover. Gallery viewers request the
-selected screenshot on demand. The intro plays briefly once per tab session; hash
+selected screenshot on demand. The multilingual greeting intro plays for about 2.35 seconds once per tab session; hash
 links, return visits and reduced-motion preferences skip it.

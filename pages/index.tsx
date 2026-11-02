@@ -4,7 +4,7 @@ import { projects } from "@/data/projects.data";
 import { courierPrime } from "@/utils/fonts";
 import { Lamp } from "@/components/hero-title";
 import { AnimatePresence } from "framer-motion";
-import Preloader from "@/components/preloader";
+import Preloader, { introDuration } from "@/components/preloader";
 import { useEffect, useRef, useState } from "react";
 import About from "@/components/about";
 import Skills from "@/components/skills";
@@ -38,15 +38,15 @@ export default function Home() {
 
     let introSeen = false;
     try {
-      introSeen = sessionStorage.getItem("portfolio-intro-seen") === "1";
-      sessionStorage.setItem("portfolio-intro-seen", "1");
+      introSeen = sessionStorage.getItem("portfolio-intro-seen") === "multilingual-v1";
+      sessionStorage.setItem("portfolio-intro-seen", "multilingual-v1");
     } catch {
       // The short intro still works when storage is unavailable.
     }
     const skipIntro = introSeen || Boolean(window.location.hash) || window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     let loadingTimeout: number | undefined;
     if (skipIntro) setIsLoading(false);
-    else loadingTimeout = window.setTimeout(() => setIsLoading(false), 350);
+    else loadingTimeout = window.setTimeout(() => setIsLoading(false), introDuration);
 
     return () => {
       window.clearTimeout(loadingTimeout);
