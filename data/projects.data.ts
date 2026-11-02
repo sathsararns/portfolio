@@ -60,7 +60,6 @@ const projectEntries: Project[] = [
       src: `/assets/portfolio/wedahub/${filename}`,
     })),
     banner: "/assets/portfolio/wedahub/wedahub-1.png",
-    liveUrl: "https://weda-hub-frontend.vercel.app/",
     githubUrl: "https://github.com/sathsararns/wedaHub",
   },
   // Quotes App temporarily disabled; uncomment to restore.
