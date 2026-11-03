@@ -1,6 +1,6 @@
 import { assetPath } from "@/utils/asset-path";
 
-export const CV_URL = assetPath("/cv/Sathsara_Ranasooriya_CV.pdf");
+export const CV_URL = assetPath("/cv/Sathsara_Ranasooriya_CV.pdf?v=0797c61052f5");
 
 export function detectMobile() {
   const toMatch = [
