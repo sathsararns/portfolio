@@ -59,3 +59,9 @@ The page selects image sizes with `srcset`, reserves image dimensions and lazy-l
 offscreen images. Link preview images load on hover. Gallery viewers request the
 selected screenshot on demand. The multilingual greeting intro plays for about 2.35 seconds once per tab session; hash
 links, return visits and reduced-motion preferences skip it.
+
+## CV download
+
+The original CV PDF is served directly from `public/cv/Sathsara_Ranasooriya_CV.pdf`.
+The profile, contact and menu links download that file without converting or
+compressing it. Replace this PDF and deploy to update the CV.

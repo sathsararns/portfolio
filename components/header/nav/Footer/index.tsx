@@ -1,6 +1,6 @@
 import { CONTACT_NUMBER, EMAIL, GITHUB, LINKEDIN } from "@/data/constants.data";
 import styles from "./style.module.scss";
-import { downloadPdf } from "@/data/utils";
+import { CV_URL } from "@/data/utils";
 
 export default function index() {
   return (
@@ -9,7 +9,7 @@ export default function index() {
         <p>Get in touch</p>
       </div>
       <div className={styles.list}>
-        <a onClick={downloadPdf}>Resume</a>
+        <a href={CV_URL} download>Resume</a>
         <a href={`mailto:${EMAIL}`}>Email</a>
         {/* <a href={`tel:${CONTACT_NUMBER.replace(" ", "")}`}>Contact</a> */}
         <a href={LINKEDIN} target="_blank">

@@ -1,5 +1,5 @@
 import { responsiveImage } from "@/utils/images";
-import { downloadPdf } from "@/data/utils";
+import { CV_URL } from "@/data/utils";
 import { AboutLinks } from "./components/profile-links.component";
 
 export default function About() {
@@ -21,9 +21,11 @@ export default function About() {
             className="rounded-full w-full border-2 p-2 hover:p-0 duration-300 self-start"
           />
 
-          <div
+          <a
             className="absolute flex justify-center items-center bottom-[-25px] lg:bottom-[100px] max-w-[20vmin] w-full"
-            onClick={downloadPdf}
+            href={CV_URL}
+            download
+            aria-label="Download CV"
           >
             <div className="w-full ">
               <svg
@@ -75,7 +77,7 @@ export default function About() {
                 d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
               />
             </svg>
-          </div>
+          </a>
         </div>
       </div>
     </>

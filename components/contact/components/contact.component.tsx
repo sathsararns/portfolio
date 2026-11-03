@@ -14,7 +14,7 @@ import {
   GITHUB,
   LINKEDIN,
 } from "@/data/constants.data";
-import { downloadPdf } from "@/data/utils";
+import { CV_URL } from "@/data/utils";
 import { enqueueSnackbar } from "notistack";
 
 export function ContactComponent() {
@@ -194,10 +194,10 @@ export function ContactComponent() {
             <BottomGradient />
           </button>  */}
 
-          <button
+          <a
             className=" relative group/btn flex space-x-2 items-center justify-start  w-full text-black rounded-md h-10 font-medium shadow-input"
-            type="submit"
-            onClick={downloadPdf}
+            href={CV_URL}
+            download
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -218,7 +218,7 @@ export function ContactComponent() {
               Download Resume
             </span>
             {/* <BottomGradient /> */}
-          </button>
+          </a>
         </div>
 
         <div className="flex flex-col space-y-4">
