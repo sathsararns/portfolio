@@ -215,7 +215,7 @@ export function ContactComponent() {
             </svg>
 
             <span className="text-neutral-300 text-sm hover:text-neutral-100">
-              Download Resume
+              Download CV
             </span>
             {/* <BottomGradient /> */}
           </a>
